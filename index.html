@@ -133,7 +133,6 @@ section{position:relative;z-index:1}
 .event-photo{border-radius:20px;overflow:hidden;position:relative}
 .event-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
 .event-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,96,122,.1),transparent);border-radius:20px;border:1px solid rgba(201,96,122,.15)}
-.ev-photo-fallback{display:flex!important;align-items:center;justify-content:center;min-height:420px;background:linear-gradient(135deg,var(--petal),var(--lavender));color:var(--mid);font-size:.9rem;text-align:center;padding:24px}
 .event-cards{display:flex;flex-direction:column;gap:10px;margin-top:24px}
 .ev-card{background:var(--petal);border:1px solid rgba(201,96,122,.1);border-radius:14px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;transition:transform .3s,box-shadow .3s}
 .ev-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(201,96,122,.1)}
@@ -699,12 +698,8 @@ buildAudioPlayers();
 updateMusicUI();
 
 function handleEventPhotoError(img){
-  const wrapper=img.parentElement;
-  img.remove();
-  const fallback=document.createElement('div');
-  fallback.className='ev-photo-fallback';
-  fallback.textContent='Photo unavailable';
-  wrapper.appendChild(fallback);
+  const wrapper = img.parentElement;
+  wrapper.style.display = 'none';
 }
 
 function markBrokenGalleryItem(img){
@@ -712,23 +707,36 @@ function markBrokenGalleryItem(img){
   if(item) item.classList.add('is-broken');
 }
 
-const validGalleryPhotos=[];
-const st=document.getElementById('stripTrack');
-galleryPhotos.forEach(src=>{
-  const img=document.createElement('img');
-  img.src=src;
-  img.className='strip-photo';
-  img.alt='Yannah';
-  img.loading='lazy';
-  img.onerror=()=>{img.remove();};
-  img.onload=()=>{
-    const clone=img.cloneNode();
-    clone.onerror=()=>{clone.remove();};
-    st.appendChild(clone);
-    const clone2=img.cloneNode();
-    clone2.onerror=()=>{clone2.remove();};
-    st.appendChild(clone2);
+const validGalleryPhotos = [];
+const stripLoadedPhotos = [];
+const st = document.getElementById('stripTrack');
+
+galleryPhotos.forEach(src => {
+  const img = document.createElement('img');
+  img.src = src;
+  img.className = 'strip-photo';
+  img.alt = 'Yannah';
+  img.loading = 'lazy';
+
+  img.onload = () => {
+    if (!stripLoadedPhotos.includes(src)) {
+      stripLoadedPhotos.push(src);
+    }
+
+    st.innerHTML = '';
+
+    const orderedPhotos = [...stripLoadedPhotos, ...stripLoadedPhotos];
+    orderedPhotos.forEach(photoSrc => {
+      const stripImg = document.createElement('img');
+      stripImg.src = photoSrc;
+      stripImg.className = 'strip-photo';
+      stripImg.alt = 'Yannah';
+      stripImg.loading = 'lazy';
+      st.appendChild(stripImg);
+    });
   };
+
+  img.onerror = () => {};
 });
 
 const gg=document.getElementById('galleryGrid');
