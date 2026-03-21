@@ -13,7 +13,6 @@
   --lavender:#ede0f5;--lilac:#c4a0e0;--cream:#fdf6f8;
   --gold:#b8955a;--gold-lt:#e8d5a8;--gold-shine:#f5e6c0;
   --dark:#2a1520;--mid:#6e3d50;--lt:#b07888;
-  --sparkle:rgba(255,240,200,.9);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -22,24 +21,60 @@ body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--dark);ove
   .cur{width:10px;height:10px;background:var(--rose);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:multiply;transition:transform .1s}
   .cur-t{width:32px;height:32px;border:1.5px solid var(--rose-lt);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .18s ease;opacity:.5}
 }
- 
-/* ── MAGIC SPARKLES ── */
 .sparkle-canvas{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
- 
-/* ── PETALS ── */
 .petals-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
 .petal{position:absolute;opacity:0;animation:petalFall linear infinite}
 @keyframes petalFall{0%{opacity:0;transform:translateY(-30px) rotate(0deg) scale(1)}10%{opacity:.7}90%{opacity:.4}100%{opacity:0;transform:translateY(110vh) rotate(480deg) translateX(60px) scale(.6)}}
- 
-/* ── MUSIC PLAYER ── */
+
+.music-start-overlay{
+  position:fixed;inset:0;z-index:100000;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(42,21,32,.50);backdrop-filter:blur(10px);
+  padding:24px;
+}
+.music-start-card{
+  background:rgba(253,246,248,.96);
+  border:1px solid rgba(201,96,122,.18);
+  border-radius:28px;
+  padding:28px 24px;
+  max-width:420px;
+  width:100%;
+  text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,.18);
+}
+.music-start-title{
+  font-family:'Great Vibes',cursive;
+  font-size:2.6rem;
+  color:var(--rose);
+  margin-bottom:10px;
+}
+.music-start-text{
+  font-size:.86rem;
+  line-height:1.7;
+  color:var(--mid);
+  margin-bottom:18px;
+}
+.music-start-btn{
+  padding:14px 26px;
+  border:none;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--rose),var(--lilac));
+  color:#fff;
+  font-family:'Jost',sans-serif;
+  font-size:.72rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow:0 10px 30px rgba(201,96,122,.26);
+}
 .music-bar{position:fixed;bottom:20px;right:20px;z-index:300;display:flex;align-items:center;gap:10px;background:rgba(253,246,248,.92);backdrop-filter:blur(12px);border:1px solid rgba(201,96,122,.2);border-radius:50px;padding:10px 16px;box-shadow:0 4px 20px rgba(201,96,122,.15)}
 .music-icon{font-size:1rem;animation:musicPulse 1.5s ease infinite}
 @keyframes musicPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
 .music-info{font-size:.6rem;letter-spacing:.1em;color:var(--mid);max-width:120px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .music-info span{display:block;font-size:.55rem;color:var(--lt);margin-top:1px}
 .music-toggle{background:none;border:none;font-size:.9rem;cursor:pointer;color:var(--rose);padding:0;line-height:1}
- 
-/* ── NAV ── */
+
 nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(253,246,248,.93);backdrop-filter:blur(16px);border-bottom:1px solid rgba(201,96,122,.12)}
 .nav-inner{max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
 .nav-brand{font-family:'Great Vibes',cursive;font-size:1.6rem;color:var(--rose);text-decoration:none;letter-spacing:.05em}
@@ -54,8 +89,7 @@ nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(253,246,248,.93)
 .mobile-menu a{font-family:'Great Vibes',cursive;font-size:2.5rem;color:var(--mid);text-decoration:none;transition:color .3s}
 .mobile-menu a:hover{color:var(--rose)}
 .close-menu{position:absolute;top:20px;right:24px;background:none;border:none;font-size:1.8rem;color:var(--mid);cursor:pointer}
- 
-/* ── HERO ── */
+
 .hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 24px 60px;position:relative;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background:
   radial-gradient(ellipse 60% 50% at 10% 90%,rgba(201,96,122,.2) 0%,transparent 55%),
@@ -70,15 +104,7 @@ nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(253,246,248,.93)
 @keyframes orbFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.05)}}
 .hero-c{position:relative;z-index:2}
 .eyebrow{font-size:.62rem;font-weight:500;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;opacity:0;animation:fadeUp .8s .3s forwards}
-.hero-name{
-  font-family:'Great Vibes',cursive;
-  font-size:clamp(5rem,20vw,13rem);
-  color:var(--dark);
-  line-height:.9;
-  opacity:0;
-  animation:fadeUp 1s .5s forwards;
-  text-shadow:0 2px 40px rgba(201,96,122,.15)
-}
+.hero-name{font-family:'Great Vibes',cursive;font-size:clamp(5rem,20vw,13rem);color:var(--dark);line-height:.9;opacity:0;animation:fadeUp 1s .5s forwards;text-shadow:0 2px 40px rgba(201,96,122,.15)}
 .hero-at18{font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,4vw,3rem);font-weight:300;font-style:italic;color:var(--lilac);margin-top:8px;opacity:0;animation:fadeUp 1s .7s forwards}
 .hero-theme{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-top:18px;opacity:0;animation:fadeUp 1s .85s forwards}
 .hero-div{display:flex;align-items:center;gap:14px;justify-content:center;margin:22px 0;opacity:0;animation:fadeUp 1s .95s forwards}
@@ -93,8 +119,7 @@ nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(253,246,248,.93)
 .hero-scroll span{font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lt)}
 .scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,var(--rose),transparent);animation:scrollP 1.6s ease infinite}
 @keyframes scrollP{0%,100%{opacity:.4}50%{opacity:1}}
- 
-/* ── PHOTO STRIP ── */
+
 .photo-strip{overflow:hidden;height:340px;background:var(--dark);position:relative}
 .photo-strip::before,.photo-strip::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
 .photo-strip::before{left:0;background:linear-gradient(to right,var(--dark),transparent)}
@@ -104,13 +129,11 @@ nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(253,246,248,.93)
 .strip-photo{height:340px;width:auto;min-width:220px;object-fit:cover;filter:brightness(.8) saturate(1.1);transition:filter .4s,transform .4s;border-radius:4px}
 .strip-photo:hover{filter:brightness(1) saturate(1.2);transform:scale(1.03)}
 @keyframes stripScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
- 
-/* ── DIVIDER ── */
+
 .fancy-divider{text-align:center;padding:32px 24px;background:white;position:relative}
 .fancy-divider::before{content:'';position:absolute;top:50%;left:5%;right:5%;height:1px;background:linear-gradient(to right,transparent,var(--gold-lt),transparent)}
 .fancy-divider-text{position:relative;z-index:1;display:inline-block;background:white;padding:0 20px;font-family:'Great Vibes',cursive;font-size:2rem;color:var(--gold)}
- 
-/* ── SECTIONS ── */
+
 section{position:relative;z-index:1}
 .s-label{font-size:.58rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px}
 .s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.8rem);font-weight:300;line-height:1.1;color:var(--dark)}
@@ -119,14 +142,14 @@ section{position:relative;z-index:1}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-d{transition-delay:.15s}
 .inner{max-width:1100px;margin:0 auto}
- 
-/* ── EVENT ── */
+
 .event{padding:90px 24px;background:white}
 .event-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
 .event-desc{font-size:.88rem;line-height:1.9;color:var(--mid);margin-top:18px}
 .event-photo{border-radius:20px;overflow:hidden;position:relative}
 .event-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
 .event-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,96,122,.1),transparent);border-radius:20px;border:1px solid rgba(201,96,122,.15)}
+.ev-photo-fallback{display:flex!important;align-items:center;justify-content:center;min-height:420px;background:linear-gradient(135deg,var(--petal),var(--lavender));color:var(--mid);font-size:.9rem;text-align:center;padding:24px}
 .event-cards{display:flex;flex-direction:column;gap:10px;margin-top:24px}
 .ev-card{background:var(--petal);border:1px solid rgba(201,96,122,.1);border-radius:14px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;transition:transform .3s,box-shadow .3s}
 .ev-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(201,96,122,.1)}
@@ -134,12 +157,11 @@ section{position:relative;z-index:1}
 .ev-label{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--lt);margin-bottom:2px}
 .ev-val{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--dark);line-height:1.3}
 .ev-sub{font-size:.7rem;color:var(--lt);margin-top:2px}
- 
-/* ── GALLERY ── */
+
 .gallery{padding:90px 24px;background:var(--petal)}
 .gallery-header{text-align:center;margin-bottom:40px}
 .g-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.g-item{border-radius:14px;overflow:hidden;position:relative;cursor:zoom-in;box-shadow:0 4px 16px rgba(201,96,122,.08)}
+.g-item{border-radius:14px;overflow:hidden;position:relative;cursor:zoom-in;box-shadow:0 4px 16px rgba(201,96,122,.08);background:rgba(255,255,255,.55)}
 .g-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.25,.46,.45,.94)}
 .g-item:hover img{transform:scale(1.07)}
 .g-item:nth-child(1){grid-column:span 2;aspect-ratio:16/9}
@@ -149,8 +171,8 @@ section{position:relative;z-index:1}
 .g-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(42,21,32,.3),transparent);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;justify-content:center;padding-bottom:14px}
 .g-item:hover .g-overlay{opacity:1}
 .g-zoom{color:white;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase}
- 
-/* LIGHTBOX */
+.g-item.is-broken{display:none}
+
 .lightbox{display:none;position:fixed;inset:0;background:rgba(15,5,10,.96);z-index:500;align-items:center;justify-content:center}
 .lightbox.open{display:flex}
 .lb-img{max-width:90vw;max-height:86vh;border-radius:10px;object-fit:contain;animation:lbIn .3s ease;box-shadow:0 20px 80px rgba(0,0,0,.5)}
@@ -161,8 +183,7 @@ section{position:relative;z-index:1}
 .lb-prev{left:14px}.lb-next{right:14px}
 .lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,.2)}
 .lb-counter{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.45);font-size:.68rem;letter-spacing:.18em}
- 
-/* ── 18s ── */
+
 .eighteens{padding:90px 24px;background:white}
 .e-header{text-align:center;margin-bottom:44px}
 .e-tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:44px}
@@ -177,8 +198,7 @@ section{position:relative;z-index:1}
 .e-list li:hover{background:rgba(201,96,122,.05)}
 .e-list li:last-child,.e-list li:nth-last-child(2):nth-child(odd){border-bottom:none}
 .e-bullet{width:6px;height:6px;border-radius:50%;background:var(--rose);flex-shrink:0;opacity:.7}
- 
-/* ── COUNTDOWN ── */
+
 .countdown-s{padding:70px 24px;background:linear-gradient(135deg,var(--dark) 0%,#3d1a2e 100%);text-align:center;position:relative;overflow:hidden}
 .countdown-s::before{content:'18';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:'Great Vibes',cursive;font-size:55vw;color:rgba(255,255,255,.03);pointer-events:none;line-height:1}
 .cd-lbl{font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:600}
@@ -187,8 +207,7 @@ section{position:relative;z-index:1}
 .cd-box{background:rgba(255,255,255,.05);border:1px solid rgba(201,96,122,.25);border-radius:18px;padding:20px 22px;min-width:88px;backdrop-filter:blur(8px)}
 .cd-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--rose-lt);line-height:1;display:block}
 .cd-unit{font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:6px;display:block}
- 
-/* ── RSVP ── */
+
 .rsvp{padding:90px 24px;background:linear-gradient(150deg,var(--petal) 0%,var(--lavender) 100%);position:relative;overflow:hidden}
 .rsvp::before{content:'&#x1F338;';position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-size:40vw;opacity:.04;pointer-events:none;line-height:1}
 .rsvp-inner{max-width:560px;margin:0 auto;position:relative;z-index:1;text-align:center}
@@ -212,8 +231,7 @@ section{position:relative;z-index:1}
 .rs-text{font-size:.85rem;color:var(--mid);line-height:1.7;margin-bottom:20px}
 .btn-cal{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;background:white;border:1.5px solid var(--rose);color:var(--rose);border-radius:50px;font-family:'Jost',sans-serif;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;font-weight:600;text-decoration:none;transition:all .3s}
 .btn-cal:hover{background:var(--rose);color:white}
- 
-/* ── GUESTBOOK ── */
+
 .guestbook{padding:90px 24px;background:var(--petal)}
 .gb-inner{max-width:860px;margin:0 auto}
 .gb-header{text-align:center;margin-bottom:40px}
@@ -226,24 +244,20 @@ section{position:relative;z-index:1}
 .msg-name{font-family:'Great Vibes',cursive;font-size:1.4rem;color:var(--rose);margin-bottom:6px}
 .msg-text{font-size:.82rem;line-height:1.75;color:var(--mid);position:relative;z-index:1}
 .msg-time{font-size:.6rem;color:var(--lt);margin-top:8px;letter-spacing:.08em}
- 
-/* ── FOOTER ── */
+
 footer{padding:60px 24px;background:var(--dark);text-align:center;position:relative;overflow:hidden}
 footer::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(201,96,122,.1),transparent)}
 .ft-name{font-family:'Great Vibes',cursive;font-size:3.5rem;color:var(--rose-lt);margin-bottom:8px}
 .ft-theme{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:6px}
 .ft-parents{font-size:.68rem;color:rgba(255,255,255,.18);margin-top:10px;letter-spacing:.08em}
 .ft-hearts{margin-top:22px;font-size:.95rem;letter-spacing:8px;opacity:.35}
- 
-/* ── TOAST ── */
+
 .toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--dark);color:white;padding:12px 24px;border-radius:50px;font-size:.75rem;letter-spacing:.08em;z-index:999;transition:transform .3s ease;pointer-events:none;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.3)}
 .toast.show{transform:translateX(-50%) translateY(0)}
- 
-/* ── ANIMS ── */
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
- 
-/* ── RESPONSIVE ── */
+
 @media(max-width:900px){
   .g-grid{grid-template-columns:repeat(3,1fr)}
   .g-item:nth-child(1){grid-column:span 3;aspect-ratio:16/8}
@@ -276,20 +290,26 @@ footer::before{content:'';position:absolute;inset:0;background:radial-gradient(e
 </style>
 </head>
 <body>
+<div id="musicStartOverlay" class="music-start-overlay">
+  <div class="music-start-card">
+    <div class="music-start-title">Yannah @ 18</div>
+    <p class="music-start-text">Tap below to enter the invitation and start the background music.</p>
+    <button id="startExperienceBtn" class="music-start-btn">Enter & Play Music ♫</button>
+  </div>
+</div>
+
 <div class="cur" id="cur"></div><div class="cur-t" id="curT"></div>
 <div class="petals-bg" id="petals"></div>
 <canvas class="sparkle-canvas" id="sparkleCanvas"></canvas>
 <div class="toast" id="toast"></div>
- 
-<!-- MUSIC -->
+
 <div id="musicAudios"></div>
 <div class="music-bar" id="musicBar">
   <span class="music-icon" id="musicIcon">&#x1F3B5;</span>
-  <div class="music-info">Now Playing<span id="musicTitle">Loading...</span></div>
-  <button class="music-toggle" id="musicToggle" onclick="toggleMusic()" title="Toggle music">&#x23F8;</button>
+  <div class="music-info">Now Playing<span id="musicTitle">Ready...</span></div>
+  <button class="music-toggle" id="musicToggle" onclick="toggleMusic()" title="Toggle music">&#x25B6;</button>
 </div>
- 
-<!-- MOBILE MENU -->
+
 <div class="mobile-menu" id="mobileMenu">
   <button class="close-menu" onclick="toggleMenu()">&#x2715;</button>
   <a href="#event" onclick="toggleMenu()">The Event</a>
@@ -298,8 +318,7 @@ footer::before{content:'';position:absolute;inset:0;background:radial-gradient(e
   <a href="#rsvp" onclick="toggleMenu()">RSVP</a>
   <a href="#guestbook" onclick="toggleMenu()">Guestbook</a>
 </div>
- 
-<!-- NAV -->
+
 <nav>
   <div class="nav-inner">
     <a class="nav-brand" href="#home">Yannah</a>
@@ -310,8 +329,7 @@ footer::before{content:'';position:absolute;inset:0;background:radial-gradient(e
     <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   </div>
 </nav>
- 
-<!-- HERO -->
+
 <section class="hero" id="home">
   <div class="hero-bg"></div><div class="hero-photo"></div>
   <div class="hero-orbs"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div></div>
@@ -329,11 +347,9 @@ footer::before{content:'';position:absolute;inset:0;background:radial-gradient(e
   </div>
   <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
 </section>
- 
-<!-- PHOTO STRIP -->
+
 <div class="photo-strip"><div class="strip-track" id="stripTrack"></div></div>
- 
-<!-- EVENT -->
+
 <section class="event" id="event">
   <div class="inner"><div class="event-grid">
     <div class="reveal">
@@ -349,14 +365,13 @@ footer::before{content:'';position:absolute;inset:0;background:radial-gradient(e
       </div>
     </div>
     <div class="event-photo reveal reveal-d">
-      <img src="https://lh3.googleusercontent.com/d/1V42YydMCcmNnfj3bw77drunt-uDMkhxR" alt="Yannah" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1V42YydMCcmNnfj3bw77drunt-uDMkhxR" alt="Yannah" loading="lazy" onerror="handleEventPhotoError(this)">
     </div>
   </div></div>
 </section>
- 
+
 <div class="fancy-divider"><span class="fancy-divider-text">A Flower in Bloom</span></div>
- 
-<!-- GALLERY -->
+
 <section class="gallery" id="gallery">
   <div class="inner">
     <div class="gallery-header reveal">
@@ -367,10 +382,9 @@ footer::before{content:'';position:absolute;inset:0;background:radial-gradient(e
     <div class="g-grid" id="galleryGrid"></div>
   </div>
 </section>
- 
+
 <div class="fancy-divider"><span class="fancy-divider-text">The 18s</span></div>
- 
-<!-- 18s -->
+
 <section class="eighteens" id="18s">
   <div class="inner">
     <div class="e-header reveal">
@@ -382,8 +396,7 @@ footer::before{content:'';position:absolute;inset:0;background:radial-gradient(e
     <div id="ePanels"></div>
   </div>
 </section>
- 
-<!-- COUNTDOWN -->
+
 <section class="countdown-s">
   <div class="reveal">
     <p class="cd-lbl">Until the Big Night</p>
@@ -396,8 +409,7 @@ footer::before{content:'';position:absolute;inset:0;background:radial-gradient(e
     </div>
   </div>
 </section>
- 
-<!-- RSVP -->
+
 <section class="rsvp" id="rsvp">
   <div class="rsvp-inner">
     <div class="reveal">
@@ -430,8 +442,7 @@ footer::before{content:'';position:absolute;inset:0;background:radial-gradient(e
     </div>
   </div>
 </section>
- 
-<!-- GUESTBOOK -->
+
 <section class="guestbook" id="guestbook">
   <div class="gb-inner">
     <div class="gb-header reveal">
@@ -453,15 +464,14 @@ footer::before{content:'';position:absolute;inset:0;background:radial-gradient(e
     </div>
   </div>
 </section>
- 
+
 <footer>
   <p class="ft-name">Yannah Perez Herrera</p>
   <p class="ft-theme">A Flower in Bloom &middot; XVIII &middot; March 28, 2026</p>
   <p class="ft-parents">With love from Von &amp; Niecy</p>
   <div class="ft-hearts">&#x1F338; &#x1F495; &#x1F339; &#x1F495; &#x1F338;</div>
 </footer>
- 
-<!-- LIGHTBOX -->
+
 <div class="lightbox" id="lightbox">
   <button class="lb-close" onclick="closeLb()">&#x2715;</button>
   <button class="lb-prev" onclick="lbNav(-1)">&#8249;</button>
@@ -469,11 +479,44 @@ footer::before{content:'';position:absolute;inset:0;background:radial-gradient(e
   <button class="lb-next" onclick="lbNav(1)">&#8250;</button>
   <span class="lb-counter" id="lbCounter"></span>
 </div>
+
 <script>
-// ── DATA ──
-const galleryPhotos=["https://lh3.googleusercontent.com/d/1VT7Ledy4YEHhsyhxT2D1kz98I54aEvnD", "https://lh3.googleusercontent.com/d/1guthIEFwWMbtrFYHX1pNlFztIFzO7Zzd", "https://lh3.googleusercontent.com/d/1bZ7DA5SUktLstrrmR2hk4Qn5BWRDLfqh", "https://lh3.googleusercontent.com/d/1V42YydMCcmNnfj3bw77drunt-uDMkhxR", "https://lh3.googleusercontent.com/d/1FKZEtnXxCB3I1spyjKPClel-qFqJwpB8", "https://lh3.googleusercontent.com/d/1hhumgTRwSFeI3TUs-sS8U6BiHQNn8ogG", "https://lh3.googleusercontent.com/d/1EKHD_F98VxYhW4ujwYXAymoAOcnZgose", "https://lh3.googleusercontent.com/d/132GNzRnrkbYIoNXf8-dI6eL9F-ml4lTM", "https://lh3.googleusercontent.com/d/1jVT0tOTGjFX7w869pd4CGeQB5a6ZHU_J", "https://lh3.googleusercontent.com/d/1Jv2ViSZLUJgwKnNnkiChXHNdVOKa_svb", "https://lh3.googleusercontent.com/d/1y7XmZ_-QH-QRlW6z2sUJq9zNmW72TtXY", "https://lh3.googleusercontent.com/d/1jF3KWgP5veCs7Ej33emUBdzZS0yf8nOR", "https://lh3.googleusercontent.com/d/1bmVv5GsfU0DgyO1mpu0jgfH0GrCiXVtk", "https://lh3.googleusercontent.com/d/1GLXRZ5s_6QqyNprujV0TOFw3VI2-vbP-", "https://lh3.googleusercontent.com/d/1TleOCK8Dq5yKOsrGRzlzAHcoeRyHmLMj", "https://lh3.googleusercontent.com/d/1IN7sQDVAI4i0FGTdIvEJsXLHEHHhAeIq", "https://lh3.googleusercontent.com/d/1cfU7xV5jJ0_yLqqHYMwoqatkKZu1D-QN", "https://lh3.googleusercontent.com/d/1MWtfMfCVXSqO8BycExWti7UItFpnzsR9", "https://lh3.googleusercontent.com/d/1ZqI6Y6taEuCab7ESHkIUWZlOubccQO0g", "https://lh3.googleusercontent.com/d/18MGnm_1ozyljlx8QLl_qlHVbZPxQ-tAu", "https://lh3.googleusercontent.com/d/1GDaPKQbhUwk5KSxgu7IpBRuvzm3ZrQ3a", "https://lh3.googleusercontent.com/d/19FEHoYaJJ8NBFLqLhGB_BmnHgVdR5s25", "https://lh3.googleusercontent.com/d/13MQSMguBk0hQHvDxs1Z6h-aopXQgGBlJ", "https://lh3.googleusercontent.com/d/1_gpe5AF2LUuABlCpBTHuVSMar6q9S_Y5", "https://lh3.googleusercontent.com/d/118QeWy-vDeYPDgOZpvtjA5gKVBc7TlRA"];
-const musicTracks=["https://lh3.googleusercontent.com/d/1Bm-XRupL8GsLA9G1MDB82tw8nQ3e6C1U", "https://lh3.googleusercontent.com/d/1tTqup3bcQvzjptTvc3EDn21unA2WAzbR", "https://lh3.googleusercontent.com/d/1YJ8dF31UaS5_aTo7XZSXnqJkLNhDI1jg", "https://lh3.googleusercontent.com/d/1P6Q07Yc8QW84G6EJ_l3nARh-FCotLkpo"];
+const galleryPhotos=[
+  "https://lh3.googleusercontent.com/d/1VT7Ledy4YEHhsyhxT2D1kz98I54aEvnD",
+  "https://lh3.googleusercontent.com/d/1guthIEFwWMbtrFYHX1pNlFztIFzO7Zzd",
+  "https://lh3.googleusercontent.com/d/1bZ7DA5SUktLstrrmR2hk4Qn5BWRDLfqh",
+  "https://lh3.googleusercontent.com/d/1V42YydMCcmNnfj3bw77drunt-uDMkhxR",
+  "https://lh3.googleusercontent.com/d/1FKZEtnXxCB3I1spyjKPClel-qFqJwpB8",
+  "https://lh3.googleusercontent.com/d/1hhumgTRwSFeI3TUs-sS8U6BiHQNn8ogG",
+  "https://lh3.googleusercontent.com/d/1EKHD_F98VxYhW4ujwYXAymoAOcnZgose",
+  "https://lh3.googleusercontent.com/d/132GNzRnrkbYIoNXf8-dI6eL9F-ml4lTM",
+  "https://lh3.googleusercontent.com/d/1jVT0tOTGjFX7w869pd4CGeQB5a6ZHU_J",
+  "https://lh3.googleusercontent.com/d/1Jv2ViSZLUJgwKnNnkiChXHNdVOKa_svb",
+  "https://lh3.googleusercontent.com/d/1y7XmZ_-QH-QRlW6z2sUJq9zNmW72TtXY",
+  "https://lh3.googleusercontent.com/d/1jF3KWgP5veCs7Ej33emUBdzZS0yf8nOR",
+  "https://lh3.googleusercontent.com/d/1bmVv5GsfU0DgyO1mpu0jgfH0GrCiXVtk",
+  "https://lh3.googleusercontent.com/d/1GLXRZ5s_6QqyNprujV0TOFw3VI2-vbP-",
+  "https://lh3.googleusercontent.com/d/1TleOCK8Dq5yKOsrGRzlzAHcoeRyHmLMj",
+  "https://lh3.googleusercontent.com/d/1IN7sQDVAI4i0FGTdIvEJsXLHEHHhAeIq",
+  "https://lh3.googleusercontent.com/d/1cfU7xV5jJ0_yLqqHYMwoqatkKZu1D-QN",
+  "https://lh3.googleusercontent.com/d/1MWtfMfCVXSqO8BycExWti7UItFpnzsR9",
+  "https://lh3.googleusercontent.com/d/1ZqI6Y6taEuCab7ESHkIUWZlOubccQO0g",
+  "https://lh3.googleusercontent.com/d/18MGnm_1ozyljlx8QLl_qlHVbZPxQ-tAu",
+  "https://lh3.googleusercontent.com/d/1GDaPKQbhUwk5KSxgu7IpBRuvzm3ZrQ3a",
+  "https://lh3.googleusercontent.com/d/19FEHoYaJJ8NBFLqLhGB_BmnHgVdR5s25",
+  "https://lh3.googleusercontent.com/d/13MQSMguBk0hQHvDxs1Z6h-aopXQgGBlJ",
+  "https://lh3.googleusercontent.com/d/1_gpe5AF2LUuABlCpBTHuVSMar6q9S_Y5",
+  "https://lh3.googleusercontent.com/d/118QeWy-vDeYPDgOZpvtjA5gKVBc7TlRA"
+];
+
+const musicTracks=[
+  "https://lh3.googleusercontent.com/d/1Bm-XRupL8GsLA9G1MDB82tw8nQ3e6C1U",
+  "https://lh3.googleusercontent.com/d/1tTqup3bcQvzjptTvc3EDn21unA2WAzbR",
+  "https://lh3.googleusercontent.com/d/1YJ8dF31UaS5_aTo7XZSXnqJkLNhDI1jg",
+  "https://lh3.googleusercontent.com/d/1P6Q07Yc8QW84G6EJ_l3nARh-FCotLkpo"
+];
 const trackNames=['Summer Bliss','Soft Petals','Dreamy Garden','Golden Hour'];
+
 const eighteensData=[
   {key:'roses',icon:'&#x1F339;',label:'18 Roses & Treasures',names:["Dad", "Bonbon", "Papa", "Vien Herrera", "Amr Garcia", "Jhune Ada", "Scott Braiden Lorenzo", "Cedrick Ramos", "Nhommiel Pahilacan", "Geejay Ilagan", "Jerhan Fallarcuna", "Carl Reyes", "Karl Mathew Ilagan", "Yousof Garcia", "Ninong Dennis Briones", "Jared Amul", "Ace Mathew Ferrancol", "John Vincent Castillo"]},
   {key:'bills',icon:'&#x1F4B5;',label:'18 Bills',names:["Ninang Glaisa Mosca", "Ninang Manilyn Ilag", "Mommy Ising Aquino", "Ninang Mavi", "Lola Femy Amul", "Caroline Amul", "Lolo Nictor Ilagan", "Ronald Candava", "Sandy Capistrano", "Marjorie Datinguinoo", "Princess Ilagan", "Baby Ilagan", "Lola Lucing Ilagan", "Kiz Mendoza", "Mama", "Ninang Istel", "Jhune Ada", "Ninong Dennis Briones"]},
@@ -482,15 +525,13 @@ const eighteensData=[
   {key:'makeup',icon:'&#x1F484;',label:'18 Makeup & Perfume',names:["Lizzie Anne Aquino", "Ninang Mavi", "Zarina Sales", "Aileen Ferrancol", "Huey Mendoza", "Nisha Herrera", "Rich Cielo Alejo", "Liezel Fajilagot", "Alexa Coleene Espiritu", "Yssa Moaje", "Jade Crystel Ramirez", "Laine Castillo", "Karen Mosca", "Ninang Manilyn", "Marcuiz Mendoza", "Sam Andal", "Maja Fabul", "Genivive Cruz"]},
   {key:'shots',icon:'&#x1F942;',label:'18 Shots',names:["Carl Ma\u00f1acap", "Althea Nicole Cani", "Prince Silungan", "Patrick Gutierrez", "Lorraine Oriondo", "Sheena Reyes", "Trish Salih", "Arrabella Cabarnero", "Dad", "Nicole Ferwelo", "Jhune Ada", "Amr Garcia", "Vien Herrera", "Kim Bayeta", "Mel France", "Lance Dimaapi", "Homar Castillo", "Richard Castillo"]}
 ];
- 
-// ── CURSOR ──
+
 const curEl=document.getElementById('cur'),curTEl=document.getElementById('curT');
 if(curEl) document.addEventListener('mousemove',e=>{
   curEl.style.left=e.clientX+'px';curEl.style.top=e.clientY+'px';
   setTimeout(()=>{if(curTEl){curTEl.style.left=e.clientX+'px';curTEl.style.top=e.clientY+'px';}},75);
 });
- 
-// ── PETALS ──
+
 const pb=document.getElementById('petals');
 const petalShapes=['50% 0 50% 0','0 50% 0 50%','50% 50% 0 0','30% 70% 30% 70%'];
 [['#f5d0d8',.7],['#fce8ee',.6],['#ede0f5',.5],['#fde8d4',.4],['#f0e8fc',.5]].forEach(([c,o])=>{
@@ -501,8 +542,7 @@ const petalShapes=['50% 0 50% 0','0 50% 0 50%','50% 50% 0 0','30% 70% 30% 70%'];
     pb.appendChild(p);
   }
 });
- 
-// ── SPARKLE CANVAS ──
+
 const canvas=document.getElementById('sparkleCanvas');
 const ctx=canvas.getContext('2d');
 let sparks=[];
@@ -539,20 +579,16 @@ animateSparks();
 document.addEventListener('mousemove',e=>{
   if(Math.random()<.3){const s=new Spark(e.clientX,e.clientY);s.size=1.5;sparks.push(s);}
 });
- 
-// ── SCROLL REVEAL ──
+
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1});
 document.querySelectorAll('.reveal').forEach(r=>io.observe(r));
- 
-// ── MOBILE MENU ──
+
 function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
- 
-// ── MUSIC PLAYER ──
+
 let audios=[],curTrack=0,isPlaying=false,musicStarted=false;
-const musicContainer=document.getElementById('musicAudios');
 musicTracks.forEach((src,i)=>{
   const a=new Audio();
-  a.preload='none';
+  a.preload='auto';
   a.src=src.replace('https://lh3.googleusercontent.com/d/','https://drive.google.com/uc?export=download&id=');
   a.addEventListener('ended',()=>nextTrack());
   audios.push(a);
@@ -572,74 +608,154 @@ function playTrack(i){
     document.getElementById('musicIcon').style.animationPlayState='running';
   }).catch(()=>{
     isPlaying=false;
+    document.getElementById('musicToggle').textContent='▶';
     document.getElementById('musicIcon').style.animationPlayState='paused';
+    showToast('Music could not start. Check the audio link or browser settings.');
   });
 }
 function nextTrack(){playTrack((curTrack+1)%audios.length);}
 function toggleMusic(){
   if(!musicStarted){startMusic();return;}
-  if(isPlaying){audios[curTrack].pause();isPlaying=false;document.getElementById('musicToggle').textContent='▶';document.getElementById('musicIcon').style.animationPlayState='paused';}
-  else{audios[curTrack].play();isPlaying=true;document.getElementById('musicToggle').textContent='⏸';document.getElementById('musicIcon').style.animationPlayState='running';}
+  if(isPlaying){
+    audios[curTrack].pause();
+    isPlaying=false;
+    document.getElementById('musicToggle').textContent='▶';
+    document.getElementById('musicIcon').style.animationPlayState='paused';
+  }else{
+    audios[curTrack].play().then(()=>{
+      isPlaying=true;
+      document.getElementById('musicToggle').textContent='⏸';
+      document.getElementById('musicIcon').style.animationPlayState='running';
+    }).catch(()=>{
+      showToast('Music could not resume.');
+    });
+  }
 }
-['click','touchstart','scroll','keydown'].forEach(ev=>{
-  document.addEventListener(ev,()=>startMusic(),{once:true,passive:true});
+document.getElementById('startExperienceBtn').addEventListener('click',()=>{
+  startMusic();
+  document.getElementById('musicStartOverlay').style.display='none';
 });
- 
-// ── PHOTO STRIP ──
+
+function handleEventPhotoError(img){
+  const wrapper=img.parentElement;
+  img.remove();
+  const fallback=document.createElement('div');
+  fallback.className='ev-photo-fallback';
+  fallback.textContent='Photo unavailable';
+  wrapper.appendChild(fallback);
+}
+
+function markBrokenGalleryItem(img){
+  const item=img.closest('.g-item');
+  if(item) item.classList.add('is-broken');
+}
+
+const validGalleryPhotos=[];
 const st=document.getElementById('stripTrack');
-galleryPhotos.concat(galleryPhotos).forEach(src=>{
-  const img=document.createElement('img');img.src=src;img.className='strip-photo';img.alt='Yannah';img.loading='lazy';st.appendChild(img);
+galleryPhotos.forEach(src=>{
+  const img=document.createElement('img');
+  img.src=src;
+  img.className='strip-photo';
+  img.alt='Yannah';
+  img.loading='lazy';
+  img.onerror=()=>{img.remove();};
+  img.onload=()=>{
+    const clone=img.cloneNode();
+    clone.onerror=()=>{clone.remove();};
+    st.appendChild(clone);
+    const clone2=img.cloneNode();
+    clone2.onerror=()=>{clone2.remove();};
+    st.appendChild(clone2);
+  };
 });
- 
-// ── GALLERY GRID ──
+
 const gg=document.getElementById('galleryGrid');
-galleryPhotos.forEach((src,i)=>{
+galleryPhotos.forEach((src)=>{
   const div=document.createElement('div');div.className='g-item';
-  const img=document.createElement('img');img.src=src;img.alt='Yannah photo '+(i+1);img.loading='lazy';
+  const img=document.createElement('img');
+  img.src=src;
+  img.alt='Yannah photo';
+  img.loading='lazy';
+
+  img.onload=()=>{
+    const safeIndex=validGalleryPhotos.push(src)-1;
+    div.dataset.safeIndex=safeIndex;
+    div.addEventListener('click',()=>openLb(safeIndex));
+  };
+
+  img.onerror=()=>{markBrokenGalleryItem(img);};
+
   const ov=document.createElement('div');ov.className='g-overlay';ov.innerHTML='<span class="g-zoom">View Photo</span>';
   div.appendChild(img);div.appendChild(ov);
-  div.addEventListener('click',()=>openLb(i));
   gg.appendChild(div);
 });
- 
-// ── LIGHTBOX ──
+
 let lbIdx=0;
-function openLb(i){lbIdx=i;document.getElementById('lbImg').src=galleryPhotos[i];document.getElementById('lbCounter').textContent=(i+1)+' / '+galleryPhotos.length;document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
+function openLb(i){
+  if(!validGalleryPhotos.length)return;
+  lbIdx=i;
+  document.getElementById('lbImg').src=validGalleryPhotos[i];
+  document.getElementById('lbCounter').textContent=(i+1)+' / '+validGalleryPhotos.length;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
 function closeLb(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
-function lbNav(d){lbIdx=(lbIdx+d+galleryPhotos.length)%galleryPhotos.length;document.getElementById('lbImg').src=galleryPhotos[lbIdx];document.getElementById('lbCounter').textContent=(lbIdx+1)+' / '+galleryPhotos.length;}
+function lbNav(d){
+  if(!validGalleryPhotos.length)return;
+  lbIdx=(lbIdx+d+validGalleryPhotos.length)%validGalleryPhotos.length;
+  document.getElementById('lbImg').src=validGalleryPhotos[lbIdx];
+  document.getElementById('lbCounter').textContent=(lbIdx+1)+' / '+validGalleryPhotos.length;
+}
 document.getElementById('lightbox').addEventListener('click',e=>{if(e.target===document.getElementById('lightbox'))closeLb();});
 document.addEventListener('keydown',e=>{
   const lb=document.getElementById('lightbox');if(!lb.classList.contains('open'))return;
-  if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')lbNav(-1);if(e.key==='ArrowRight')lbNav(1);
+  if(e.key==='Escape')closeLb();
+  if(e.key==='ArrowLeft')lbNav(-1);
+  if(e.key==='ArrowRight')lbNav(1);
 });
 let tsX=0;
 document.getElementById('lightbox').addEventListener('touchstart',e=>{tsX=e.touches[0].clientX;},{passive:true});
 document.getElementById('lightbox').addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tsX;if(Math.abs(dx)>50)lbNav(dx<0?1:-1);});
- 
-// ── 18s TABS ──
+
 const tabsEl=document.getElementById('eTabs'),panelsEl=document.getElementById('ePanels');
 eighteensData.forEach((data,idx)=>{
-  const btn=document.createElement('button');btn.className='tab-btn'+(idx===0?' active':'');
+  const btn=document.createElement('button');
+  btn.className='tab-btn'+(idx===0?' active':'');
   btn.innerHTML=data.icon+' '+data.label;
   btn.addEventListener('click',()=>{
     document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
     document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-    btn.classList.add('active');document.getElementById('panel-'+data.key).classList.add('active');
+    btn.classList.add('active');
+    document.getElementById('panel-'+data.key).classList.add('active');
   });
   tabsEl.appendChild(btn);
-  const panel=document.createElement('div');panel.className='tab-panel'+(idx===0?' active':'');panel.id='panel-'+data.key;
-  const wrap=document.createElement('div');wrap.className='e-list-wrap';
-  const title=document.createElement('div');title.className='e-list-title';title.innerHTML=data.icon+' '+data.label;
-  const ul=document.createElement('ul');ul.className='e-list';
+
+  const panel=document.createElement('div');
+  panel.className='tab-panel'+(idx===0?' active':'');
+  panel.id='panel-'+data.key;
+
+  const wrap=document.createElement('div');
+  wrap.className='e-list-wrap';
+
+  const title=document.createElement('div');
+  title.className='e-list-title';
+  title.innerHTML=data.icon+' '+data.label;
+
+  const ul=document.createElement('ul');
+  ul.className='e-list';
+
   data.names.forEach((n)=>{
     const li=document.createElement('li');
     li.innerHTML='<span class="e-bullet"></span>'+n;
     ul.appendChild(li);
   });
-  wrap.appendChild(title);wrap.appendChild(ul);panel.appendChild(wrap);panelsEl.appendChild(panel);
+
+  wrap.appendChild(title);
+  wrap.appendChild(ul);
+  panel.appendChild(wrap);
+  panelsEl.appendChild(panel);
 });
- 
-// ── COUNTDOWN ──
+
 function updateCd(){
   const diff=new Date('2026-03-28T16:30:00+08:00')-new Date();
   if(diff<=0){['cd-d','cd-h','cd-m','cd-s'].forEach(id=>document.getElementById(id).textContent='00');return;}
@@ -649,8 +765,7 @@ function updateCd(){
   document.getElementById('cd-s').textContent=String(Math.floor((diff%60000)/1000)).padStart(2,'0');
 }
 updateCd();setInterval(updateCd,1000);
- 
-// ── RSVP ──
+
 let attend='';
 function pickAttend(val){attend=val;document.getElementById('attYes').classList.toggle('active',val==='yes');document.getElementById('attNo').classList.toggle('active',val==='no');}
 function buildCal(){
@@ -672,19 +787,32 @@ function submitRsvp(){
   }).then(()=>{
     document.getElementById('rsvpForm').style.display='none';
     const s=document.getElementById('rsvpSuccess');s.style.display='block';
-    if(attend==='yes'){document.getElementById('calLink').href=buildCal();document.getElementById('calLink').style.display='inline-flex';document.getElementById('rsTitle').textContent='See you there!';document.getElementById('rsText').textContent="Your RSVP has been received! We can't wait to celebrate with you. &#x1F495;";}
-    else{document.getElementById('calLink').style.display='none';document.getElementById('rsTitle').textContent="We'll miss you!";document.getElementById('rsText').textContent="Thank you for letting us know. Yannah cherishes every warm wish. &#x1F495;";}
+    if(attend==='yes'){
+      document.getElementById('calLink').href=buildCal();
+      document.getElementById('calLink').style.display='inline-flex';
+      document.getElementById('rsTitle').textContent='See you there!';
+      document.getElementById('rsText').textContent="Your RSVP has been received! We can't wait to celebrate with you. &#x1F495;";
+    }else{
+      document.getElementById('calLink').style.display='none';
+      document.getElementById('rsTitle').textContent="We'll miss you!";
+      document.getElementById('rsText').textContent="Thank you for letting us know. Yannah cherishes every warm wish. &#x1F495;";
+    }
     const msg=document.getElementById('rsvpMsg').value.trim();
     if(msg)addMsg(f+' '+l,msg,'RSVP Guest');
-  }).catch(()=>{showToast('Could not send RSVP. Please try again.');btn.textContent='Send My RSVP ✦';btn.disabled=false;});
+  }).catch(()=>{
+    showToast('Could not send RSVP. Please try again.');
+    btn.textContent='Send My RSVP ✦';
+    btn.disabled=false;
+  });
 }
- 
-// ── GUESTBOOK ──
+
 function signGb(){
   const n=document.getElementById('gbName').value.trim(),r=document.getElementById('gbRel').value.trim(),m=document.getElementById('gbMsg').value.trim();
   if(!n||!m){showToast('Please enter your name and message');return;}
   addMsg(n,m,r||'Guest');
-  document.getElementById('gbName').value='';document.getElementById('gbRel').value='';document.getElementById('gbMsg').value='';
+  document.getElementById('gbName').value='';
+  document.getElementById('gbRel').value='';
+  document.getElementById('gbMsg').value='';
   showToast('Your message has been added! &#x1F338;');
 }
 function addMsg(name,text,rel){
