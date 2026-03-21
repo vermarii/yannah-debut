@@ -577,7 +577,7 @@ const petalShapes=['50% 0 50% 0','0 50% 0 50%','50% 50% 0 0','30% 70% 30% 70%'];
     const tx=(Math.random()*200-100).toFixed(0);
 const ty=(Math.random()*200-100).toFixed(0);
 const tr=(Math.random()*360).toFixed(0);
-p.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;width:${s}px;height:${s*1.4}px;background:${c};opacity:${o};border-radius:${petalShapes[Math.floor(Math.random()*petalShapes.length)]};--tx:${tx}px;--ty:${ty}px;--tr:${tr}deg;animation-duration:${3+Math.random()*4}s;animation-delay:${Math.random()*12}s`;
+p.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;width:${s}px;height:${s*1.4}px;background:${c};opacity:${o};border-radius:${petalShapes[Math.floor(Math.random()*petalShapes.length)]};--tx:${tx}px;--ty:${ty}px;--tr:${tr}deg;animation-duration:${1+Math.random()*2}s;animation-delay:${Math.random()*6}s`;
     pb.appendChild(p);
   }
 });
