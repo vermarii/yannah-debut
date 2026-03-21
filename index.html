@@ -143,9 +143,9 @@ section{position:relative;z-index:1}
 
 .gallery{padding:90px 24px;background:var(--petal)}
 .gallery-header{text-align:center;margin-bottom:40px}
-.g-grid{display:flex;flex-wrap:wrap;gap:10px}
-.g-item{border-radius:14px;overflow:hidden;position:relative;cursor:zoom-in;box-shadow:0 4px 16px rgba(201,96,122,.08);background:rgba(255,255,255,.55);width:calc(33.333% - 7px)}
-.g-item img{width:100%;height:auto;display:block;transition:transform .5s cubic-bezier(.25,.46,.45,.94);vertical-align:bottom;opacity:0;transition:opacity .4s ease} .g-item img.loaded{opacity:1}
+.g-grid{columns:3;column-gap:10px}
+.g-item{border-radius:14px;overflow:hidden;position:relative;cursor:zoom-in;box-shadow:0 4px 16px rgba(201,96,122,.08);background:rgba(255,255,255,.55);break-inside:avoid;margin-bottom:10px;display:inline-block;width:100%}
+.g-item img{width:100%;height:auto;display:block} .g-item img.loaded{opacity:1}
 .g-item:hover img{transform:scale(1.07)}
 .g-item:nth-child(1){grid-column:span 2;aspect-ratio:16/9}
 .g-item:nth-child(6){grid-column:span 2;aspect-ratio:16/9}
@@ -467,16 +467,9 @@ const galleryPhotos=[
   "images/Ws-496.jpg",
   "images/Ws-653.jpg",
   "images/Ws-727.jpg",
-  "images/Ws-911.jpg",
-  "images/Ws-905.jpg",
-  "images/Ws-349.jpg",
-  "images/Ws-101.jpg",
-  "images/Ws-42.jpg",
-  "images/Ws-99.jpg",
-  "images/Ws-283.jpg",
-  "images/Ws-193.jpg",
-  "images/Ws-150.jpg",
-  "images/Ws-447.jpg",
+  "images/Ws-911.jpg",  
+  "images/Ws-101.jpg", 
+  "images/Ws-99.jpg", 
   "images/Ws-142.jpg",
   "images/Ws-138.jpg",
   "images/Ws-370.jpg",
