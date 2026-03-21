@@ -869,11 +869,27 @@ function signGb(){
   const r=document.getElementById('gbRel').value.trim();
   const m=document.getElementById('gbMsg').value.trim();
   if(!n||!m){showToast('Please enter your name and message');return;}
-  addMsg(n,m,r||'Guest');
-  document.getElementById('gbName').value='';
-  document.getElementById('gbRel').value='';
-  document.getElementById('gbMsg').value='';
-  showToast('Your message has been added! 🌸');
+  const btn=document.querySelector('.btn-sign');
+  btn.textContent='Sending...';
+  btn.disabled=true;
+  emailjs.send('service_jto7hfj','template_ivh3eks',{
+    from_name:n,
+    relationship:r||'Guest',
+    message:m
+  }).then(()=>{
+    addMsg(n,m,r||'Guest');
+    document.getElementById('gbName').value='';
+    document.getElementById('gbRel').value='';
+    document.getElementById('gbMsg').value='';
+    showToast('Your message has been added! 🌸');
+    btn.textContent='Sign the Guestbook ✦';
+    btn.disabled=false;
+  }).catch(()=>{
+    showToast('Could not send message. Please try again.');
+    btn.textContent='Sign the Guestbook ✦';
+    btn.disabled=false;
+  });
+}
 }
 function addMsg(name,text,rel){
   const g=document.getElementById('msgsGrid');
