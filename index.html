@@ -17,14 +17,20 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden}
-@media(hover:hover){*{cursor:none}
+@media(hover:hover){
+  *{cursor:none}
   .cur{width:10px;height:10px;background:var(--rose);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:multiply;transition:transform .1s}
   .cur-t{width:32px;height:32px;border:1.5px solid var(--rose-lt);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .18s ease;opacity:.5}
 }
 .sparkle-canvas{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
 .petals-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
 .petal{position:absolute;opacity:0;animation:petalFall linear infinite}
-@keyframes petalFall{0%{opacity:0;transform:translateY(-30px) rotate(0deg) scale(1)}10%{opacity:.7}90%{opacity:.4}100%{opacity:0;transform:translateY(110vh) rotate(480deg) translateX(60px) scale(.6)}}
+@keyframes petalFall{
+  0%{opacity:0;transform:translateY(-30px) rotate(0deg) scale(1)}
+  10%{opacity:.7}
+  90%{opacity:.4}
+  100%{opacity:0;transform:translateY(110vh) rotate(480deg) translateX(60px) scale(.6)}
+}
 
 .music-bar{
   position:fixed;bottom:20px;right:20px;z-index:300;
@@ -40,10 +46,7 @@ body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--dark);ove
 @keyframes musicPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
 .music-info{font-size:.6rem;letter-spacing:.1em;color:var(--mid);max-width:140px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .music-info span{display:block;font-size:.55rem;color:var(--lt);margin-top:1px}
-.music-toggle{
-  background:none;border:none;font-size:.95rem;cursor:pointer;color:var(--rose);
-  padding:0;line-height:1;min-width:22px
-}
+.music-toggle{background:none;border:none;font-size:.95rem;cursor:pointer;color:var(--rose);padding:0;line-height:1;min-width:22px}
 
 nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(253,246,248,.93);backdrop-filter:blur(16px);border-bottom:1px solid rgba(201,96,122,.12)}
 .nav-inner{max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
@@ -51,7 +54,8 @@ nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(253,246,248,.93)
 .nav-links{display:flex;gap:24px}
 .nav-links a{text-decoration:none;font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--lt);transition:color .3s;padding:4px 0;position:relative}
 .nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--rose);transition:width .3s}
-.nav-links a:hover{color:var(--rose)}.nav-links a:hover::after{width:100%}
+.nav-links a:hover{color:var(--rose)}
+.nav-links a:hover::after{width:100%}
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:4px;cursor:pointer}
 .hamburger span{width:22px;height:1.5px;background:var(--mid);border-radius:2px;display:block;transition:all .3s}
 .mobile-menu{display:none;position:fixed;inset:0;background:rgba(253,240,244,.97);z-index:199;flex-direction:column;align-items:center;justify-content:center;gap:36px;backdrop-filter:blur(20px)}
@@ -65,7 +69,7 @@ nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(253,246,248,.93)
   radial-gradient(ellipse 60% 50% at 10% 90%,rgba(201,96,122,.2) 0%,transparent 55%),
   radial-gradient(ellipse 50% 40% at 90% 10%,rgba(196,160,224,.25) 0%,transparent 55%),
   radial-gradient(ellipse 70% 60% at 50% 50%,rgba(253,232,238,.8) 0%,var(--cream) 100%)}
-.hero-photo{position:absolute;inset:0;background:url("https://lh3.googleusercontent.com/d/1VT7Ledy4YEHhsyhxT2D1kz98I54aEvnD") center/cover no-repeat;opacity:.07;filter:blur(4px)}
+.hero-photo{position:absolute;inset:0;background:url("images/Ws-496.jpg") center/cover no-repeat;opacity:.07;filter:blur(4px)}
 .hero-orbs{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .orb{position:absolute;border-radius:50%;filter:blur(60px);animation:orbFloat ease-in-out infinite}
 .orb1{width:400px;height:400px;background:rgba(201,96,122,.08);top:-100px;left:-100px;animation-duration:12s}
@@ -189,7 +193,7 @@ section{position:relative;z-index:1}
 .cd-unit{font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:6px;display:block}
 
 .rsvp{padding:90px 24px;background:linear-gradient(150deg,var(--petal) 0%,var(--lavender) 100%);position:relative;overflow:hidden}
-.rsvp::before{content:'&#x1F338;';position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-size:40vw;opacity:.04;pointer-events:none;line-height:1}
+.rsvp::before{content:'🌸';position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-size:40vw;opacity:.04;pointer-events:none;line-height:1}
 .rsvp-inner{max-width:560px;margin:0 auto;position:relative;z-index:1;text-align:center}
 .rsvp-form{background:white;border-radius:24px;padding:40px;margin-top:32px;box-shadow:0 20px 60px rgba(180,100,130,.12)}
 .form-group{margin-bottom:16px;text-align:left}
@@ -271,12 +275,12 @@ footer::before{content:'';position:absolute;inset:0;background:radial-gradient(e
 </head>
 <body>
 
-<div class="cur" id="cur"></div><div class="cur-t" id="curT"></div>
+<div class="cur" id="cur"></div>
+<div class="cur-t" id="curT"></div>
 <div class="petals-bg" id="petals"></div>
 <canvas class="sparkle-canvas" id="sparkleCanvas"></canvas>
 <div class="toast" id="toast"></div>
 
-<div id="musicAudios"></div>
 <div class="music-bar" id="musicBar">
   <button class="music-toggle" id="prevTrackBtn" onclick="prevTrack()" title="Previous track">&#x23EE;</button>
   <button class="music-toggle" id="musicToggle" onclick="toggleMusic()" title="Play or pause">&#x25B6;</button>
@@ -298,15 +302,19 @@ footer::before{content:'';position:absolute;inset:0;background:radial-gradient(e
   <div class="nav-inner">
     <a class="nav-brand" href="#home">Yannah</a>
     <div class="nav-links">
-      <a href="#event">The Event</a><a href="#gallery">Gallery</a>
-      <a href="#18s">The 18s</a><a href="#rsvp">RSVP</a><a href="#guestbook">Guestbook</a>
+      <a href="#event">The Event</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#18s">The 18s</a>
+      <a href="#rsvp">RSVP</a>
+      <a href="#guestbook">Guestbook</a>
     </div>
     <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
 <section class="hero" id="home">
-  <div class="hero-bg"></div><div class="hero-photo"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-photo"></div>
   <div class="hero-orbs"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div></div>
   <div class="hero-c">
     <p class="eyebrow">You are cordially invited to celebrate</p>
@@ -340,7 +348,7 @@ footer::before{content:'';position:absolute;inset:0;background:radial-gradient(e
       </div>
     </div>
     <div class="event-photo reveal reveal-d">
-      <img src="https://lh3.googleusercontent.com/d/1V42YydMCcmNnfj3bw77drunt-uDMkhxR" alt="Yannah" loading="lazy" onerror="handleEventPhotoError(this)">
+      <img src="images/Ws-653.jpg" alt="Yannah" loading="lazy" onerror="handleEventPhotoError(this)">
     </div>
   </div></div>
 </section>
@@ -457,61 +465,68 @@ footer::before{content:'';position:absolute;inset:0;background:radial-gradient(e
 
 <script>
 const galleryPhotos=[
-  "https://lh3.googleusercontent.com/d/1VT7Ledy4YEHhsyhxT2D1kz98I54aEvnD",
-  "https://lh3.googleusercontent.com/d/1guthIEFwWMbtrFYHX1pNlFztIFzO7Zzd",
-  "https://lh3.googleusercontent.com/d/1bZ7DA5SUktLstrrmR2hk4Qn5BWRDLfqh",
-  "https://lh3.googleusercontent.com/d/1V42YydMCcmNnfj3bw77drunt-uDMkhxR",
-  "https://lh3.googleusercontent.com/d/1FKZEtnXxCB3I1spyjKPClel-qFqJwpB8",
-  "https://lh3.googleusercontent.com/d/1hhumgTRwSFeI3TUs-sS8U6BiHQNn8ogG",
-  "https://lh3.googleusercontent.com/d/1EKHD_F98VxYhW4ujwYXAymoAOcnZgose",
-  "https://lh3.googleusercontent.com/d/132GNzRnrkbYIoNXf8-dI6eL9F-ml4lTM",
-  "https://lh3.googleusercontent.com/d/1jVT0tOTGjFX7w869pd4CGeQB5a6ZHU_J",
-  "https://lh3.googleusercontent.com/d/1Jv2ViSZLUJgwKnNnkiChXHNdVOKa_svb",
-  "https://lh3.googleusercontent.com/d/1y7XmZ_-QH-QRlW6z2sUJq9zNmW72TtXY",
-  "https://lh3.googleusercontent.com/d/1jF3KWgP5veCs7Ej33emUBdzZS0yf8nOR",
-  "https://lh3.googleusercontent.com/d/1bmVv5GsfU0DgyO1mpu0jgfH0GrCiXVtk",
-  "https://lh3.googleusercontent.com/d/1GLXRZ5s_6QqyNprujV0TOFw3VI2-vbP-",
-  "https://lh3.googleusercontent.com/d/1TleOCK8Dq5yKOsrGRzlzAHcoeRyHmLMj",
-  "https://lh3.googleusercontent.com/d/1IN7sQDVAI4i0FGTdIvEJsXLHEHHhAeIq",
-  "https://lh3.googleusercontent.com/d/1cfU7xV5jJ0_yLqqHYMwoqatkKZu1D-QN",
-  "https://lh3.googleusercontent.com/d/1MWtfMfCVXSqO8BycExWti7UItFpnzsR9",
-  "https://lh3.googleusercontent.com/d/1ZqI6Y6taEuCab7ESHkIUWZlOubccQO0g",
-  "https://lh3.googleusercontent.com/d/18MGnm_1ozyljlx8QLl_qlHVbZPxQ-tAu",
-  "https://lh3.googleusercontent.com/d/1GDaPKQbhUwk5KSxgu7IpBRuvzm3ZrQ3a",
-  "https://lh3.googleusercontent.com/d/19FEHoYaJJ8NBFLqLhGB_BmnHgVdR5s25",
-  "https://lh3.googleusercontent.com/d/13MQSMguBk0hQHvDxs1Z6h-aopXQgGBlJ",
-  "https://lh3.googleusercontent.com/d/1_gpe5AF2LUuABlCpBTHuVSMar6q9S_Y5",
-  "https://lh3.googleusercontent.com/d/118QeWy-vDeYPDgOZpvtjA5gKVBc7TlRA"
+  "images/Ws-496.jpg",
+  "images/Ws-653.jpg",
+  "images/Ws-727.jpg",
+  "images/Ws-911.jpg",
+  "images/Ws-905.jpg",
+  "images/Ws-349.jpg",
+  "images/Ws-101.jpg",
+  "images/Ws-42.jpg",
+  "images/Ws-99.jpg",
+  "images/Ws-283.jpg",
+  "images/Ws-193.jpg",
+  "images/Ws-150.jpg",
+  "images/Ws-447.jpg",
+  "images/Ws-142.jpg",
+  "images/Ws-138.jpg",
+  "images/Ws-370.jpg",
+  "images/Ws-361.jpg",
+  "images/Ws-139.jpg",
+  "images/Ws-367.jpg",
+  "images/Ws-208.jpg",
+  "images/Ws-233.jpg",
+  "images/Ws-235.jpg",
+  "images/Ws-226.jpg"
 ];
 
 const musicTracks=[
-  "https://lh3.googleusercontent.com/d/1Bm-XRupL8GsLA9G1MDB82tw8nQ3e6C1U",
-  "https://lh3.googleusercontent.com/d/1tTqup3bcQvzjptTvc3EDn21unA2WAzbR",
-  "https://lh3.googleusercontent.com/d/1YJ8dF31UaS5_aTo7XZSXnqJkLNhDI1jg",
-  "https://lh3.googleusercontent.com/d/1P6Q07Yc8QW84G6EJ_l3nARh-FCotLkpo"
+  "music/1.mp3",
+  "music/2.mp3",
+  "music/3.mp3",
+  "music/4.mp3"
 ];
-const trackNames=['Summer Bliss','Soft Petals','Dreamy Garden','Golden Hour'];
+
+const trackNames=['Track 1','Track 2','Track 3','Track 4'];
 
 const eighteensData=[
-  {key:'roses',icon:'&#x1F339;',label:'18 Roses & Treasures',names:["Dad", "Bonbon", "Papa", "Vien Herrera", "Amr Garcia", "Jhune Ada", "Scott Braiden Lorenzo", "Cedrick Ramos", "Nhommiel Pahilacan", "Geejay Ilagan", "Jerhan Fallarcuna", "Carl Reyes", "Karl Mathew Ilagan", "Yousof Garcia", "Ninong Dennis Briones", "Jared Amul", "Ace Mathew Ferrancol", "John Vincent Castillo"]},
-  {key:'bills',icon:'&#x1F4B5;',label:'18 Bills',names:["Ninang Glaisa Mosca", "Ninang Manilyn Ilag", "Mommy Ising Aquino", "Ninang Mavi", "Lola Femy Amul", "Caroline Amul", "Lolo Nictor Ilagan", "Ronald Candava", "Sandy Capistrano", "Marjorie Datinguinoo", "Princess Ilagan", "Baby Ilagan", "Lola Lucing Ilagan", "Kiz Mendoza", "Mama", "Ninang Istel", "Jhune Ada", "Ninong Dennis Briones"]},
-  {key:'candles',icon:'&#x1F56F;&#xFE0F;',label:'18 Candles & Footwear',names:["Sheena Nicole Reyes", "Lorraine Oriondo", "Myra Andal", "Jan Cedric Abdon", "Althea Talento", "Devie Jean De Vera", "Ninang Sheanna", "Trent Gian Magnaye", "Kim Bayeta", "Andrea Macalindol", "Miesha Sirenity Maunahan", "Hannah Medella", "Nica Andal", "Ninang Glaisa Mosca", "Tita Ningning", "Lola Zeny Castillo", "Anches Ilagan", "Angelo Melo"]},
-  {key:'bags',icon:'&#x1F45C;',label:'18 Bags',names:["Krisha Aquino", "Jonna Ilagan", "Princess Ilagan", "Lola Mylene Ilagan", "Carla Reyes", "Jian Ilagan", "Ninang Lara Briones", "Ate Mandy Mendoza", "Princess Diane Sumulong", "Cassandra Nicole Oliver", "Trisha Agudera", "Denniel Arcega", "Ara Villamor", "Chel Percia", "Kristel Percia", "Leny Ilagan", "Andrea Ilagan", "Eden Ilagan"]},
-  {key:'makeup',icon:'&#x1F484;',label:'18 Makeup & Perfume',names:["Lizzie Anne Aquino", "Ninang Mavi", "Zarina Sales", "Aileen Ferrancol", "Huey Mendoza", "Nisha Herrera", "Rich Cielo Alejo", "Liezel Fajilagot", "Alexa Coleene Espiritu", "Yssa Moaje", "Jade Crystel Ramirez", "Laine Castillo", "Karen Mosca", "Ninang Manilyn", "Marcuiz Mendoza", "Sam Andal", "Maja Fabul", "Genivive Cruz"]},
-  {key:'shots',icon:'&#x1F942;',label:'18 Shots',names:["Carl Mañacap", "Althea Nicole Cani", "Prince Silungan", "Patrick Gutierrez", "Lorraine Oriondo", "Sheena Reyes", "Trish Salih", "Arrabella Cabarnero", "Dad", "Nicole Ferwelo", "Jhune Ada", "Amr Garcia", "Vien Herrera", "Kim Bayeta", "Mel France", "Lance Dimaapi", "Homar Castillo", "Richard Castillo"]}
+  {key:'roses',icon:'🌹',label:'18 Roses & Treasures',names:["Dad", "Bonbon", "Papa", "Vien Herrera", "Amr Garcia", "Jhune Ada", "Scott Braiden Lorenzo", "Cedrick Ramos", "Nhommiel Pahilacan", "Geejay Ilagan", "Jerhan Fallarcuna", "Carl Reyes", "Karl Mathew Ilagan", "Yousof Garcia", "Ninong Dennis Briones", "Jared Amul", "Ace Mathew Ferrancol", "John Vincent Castillo"]},
+  {key:'bills',icon:'💵',label:'18 Bills',names:["Ninang Glaisa Mosca", "Ninang Manilyn Ilag", "Mommy Ising Aquino", "Ninang Mavi", "Lola Femy Amul", "Caroline Amul", "Lolo Nictor Ilagan", "Ronald Candava", "Sandy Capistrano", "Marjorie Datinguinoo", "Princess Ilagan", "Baby Ilagan", "Lola Lucing Ilagan", "Kiz Mendoza", "Mama", "Ninang Istel", "Jhune Ada", "Ninong Dennis Briones"]},
+  {key:'candles',icon:'🕯️',label:'18 Candles & Footwear',names:["Sheena Nicole Reyes", "Lorraine Oriondo", "Myra Andal", "Jan Cedric Abdon", "Althea Talento", "Devie Jean De Vera", "Ninang Sheanna", "Trent Gian Magnaye", "Kim Bayeta", "Andrea Macalindol", "Miesha Sirenity Maunahan", "Hannah Medella", "Nica Andal", "Ninang Glaisa Mosca", "Tita Ningning", "Lola Zeny Castillo", "Anches Ilagan", "Angelo Melo"]},
+  {key:'bags',icon:'👜',label:'18 Bags',names:["Krisha Aquino", "Jonna Ilagan", "Princess Ilagan", "Lola Mylene Ilagan", "Carla Reyes", "Jian Ilagan", "Ninang Lara Briones", "Ate Mandy Mendoza", "Princess Diane Sumulong", "Cassandra Nicole Oliver", "Trisha Agudera", "Denniel Arcega", "Ara Villamor", "Chel Percia", "Kristel Percia", "Leny Ilagan", "Andrea Ilagan", "Eden Ilagan"]},
+  {key:'makeup',icon:'💄',label:'18 Makeup & Perfume',names:["Lizzie Anne Aquino", "Ninang Mavi", "Zarina Sales", "Aileen Ferrancol", "Huey Mendoza", "Nisha Herrera", "Rich Cielo Alejo", "Liezel Fajilagot", "Alexa Coleene Espiritu", "Yssa Moaje", "Jade Crystel Ramirez", "Laine Castillo", "Karen Mosca", "Ninang Manilyn", "Marcuiz Mendoza", "Sam Andal", "Maja Fabul", "Genivive Cruz"]},
+  {key:'shots',icon:'🥂',label:'18 Shots',names:["Carl Mañacap", "Althea Nicole Cani", "Prince Silungan", "Patrick Gutierrez", "Lorraine Oriondo", "Sheena Reyes", "Trish Salih", "Arrabella Cabarnero", "Dad", "Nicole Ferwelo", "Jhune Ada", "Amr Garcia", "Vien Herrera", "Kim Bayeta", "Mel France", "Lance Dimaapi", "Homar Castillo", "Richard Castillo"]}
 ];
 
-const curEl=document.getElementById('cur'),curTEl=document.getElementById('curT');
+const curEl=document.getElementById('cur');
+const curTEl=document.getElementById('curT');
 if(curEl) document.addEventListener('mousemove',e=>{
-  curEl.style.left=e.clientX+'px';curEl.style.top=e.clientY+'px';
-  setTimeout(()=>{if(curTEl){curTEl.style.left=e.clientX+'px';curTEl.style.top=e.clientY+'px';}},75);
+  curEl.style.left=e.clientX+'px';
+  curEl.style.top=e.clientY+'px';
+  setTimeout(()=>{
+    if(curTEl){
+      curTEl.style.left=e.clientX+'px';
+      curTEl.style.top=e.clientY+'px';
+    }
+  },75);
 });
 
 const pb=document.getElementById('petals');
 const petalShapes=['50% 0 50% 0','0 50% 0 50%','50% 50% 0 0','30% 70% 30% 70%'];
 [['#f5d0d8',.7],['#fce8ee',.6],['#ede0f5',.5],['#fde8d4',.4],['#f0e8fc',.5]].forEach(([c,o])=>{
   for(let i=0;i<4;i++){
-    const p=document.createElement('div');p.className='petal';
+    const p=document.createElement('div');
+    p.className='petal';
     const s=6+Math.random()*10;
     p.style.cssText=`left:${Math.random()*100}%;width:${s}px;height:${s*1.4}px;background:${c};opacity:${o};border-radius:${petalShapes[Math.floor(Math.random()*petalShapes.length)]};animation-duration:${9+Math.random()*10}s;animation-delay:${Math.random()*15}s`;
     pb.appendChild(p);
@@ -522,22 +537,28 @@ const canvas=document.getElementById('sparkleCanvas');
 const ctx=canvas.getContext('2d');
 let sparks=[];
 function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
-resizeCanvas();window.addEventListener('resize',resizeCanvas);
+resizeCanvas();
+window.addEventListener('resize',resizeCanvas);
+
 function Spark(x,y){
   this.x=x||Math.random()*canvas.width;
   this.y=y||Math.random()*canvas.height;
   this.size=Math.random()*3+1;
   this.speedX=(Math.random()-.5)*.6;
   this.speedY=(Math.random()-.5)*.6-0.3;
-  this.life=1;this.decay=.008+Math.random()*.012;
+  this.life=1;
+  this.decay=.008+Math.random()*.012;
   this.color=`hsl(${280+Math.random()*80},70%,${75+Math.random()*20}%)`;
 }
+
 function animateSparks(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
   if(Math.random()<.15) sparks.push(new Spark());
   sparks=sparks.filter(s=>s.life>0);
   sparks.forEach(s=>{
-    ctx.save();ctx.globalAlpha=s.life*.6;ctx.fillStyle=s.color;
+    ctx.save();
+    ctx.globalAlpha=s.life*.6;
+    ctx.fillStyle=s.color;
     ctx.beginPath();
     const r1=s.size,r2=s.size*.4;
     for(let i=0;i<10;i++){
@@ -545,99 +566,136 @@ function animateSparks(){
       const r=i%2===0?r1:r2;
       i===0?ctx.moveTo(s.x+r*Math.cos(angle),s.y+r*Math.sin(angle)):ctx.lineTo(s.x+r*Math.cos(angle),s.y+r*Math.sin(angle));
     }
-    ctx.closePath();ctx.fill();ctx.restore();
-    s.x+=s.speedX;s.y+=s.speedY;s.life-=s.decay;
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+    s.x+=s.speedX;
+    s.y+=s.speedY;
+    s.life-=s.decay;
   });
   requestAnimationFrame(animateSparks);
 }
 animateSparks();
+
 document.addEventListener('mousemove',e=>{
-  if(Math.random()<.3){const s=new Spark(e.clientX,e.clientY);s.size=1.5;sparks.push(s);}
+  if(Math.random()<.3){
+    const s=new Spark(e.clientX,e.clientY);
+    s.size=1.5;
+    sparks.push(s);
+  }
 });
 
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1});
 document.querySelectorAll('.reveal').forEach(r=>io.observe(r));
 
-function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
-
-let audios = [], curTrack = 0, isPlaying = false, musicStarted = false;
-
-musicTracks.forEach((src) => {
-  const a = new Audio();
-  a.preload = 'metadata';
-  a.src = src.replace('https://lh3.googleusercontent.com/d/', 'https://drive.google.com/uc?export=download&id=');
-  a.addEventListener('ended', () => nextTrack());
-  audios.push(a);
-});
-
-function updateMusicUI(){
-  document.getElementById('musicToggle').textContent = isPlaying ? '⏸' : '▶';
-  document.getElementById('musicTitle').textContent = trackNames[curTrack] || ('Track ' + (curTrack + 1));
-  document.getElementById('musicIcon').style.animationPlayState = isPlaying ? 'running' : 'paused';
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
 }
 
-function stopAllTracks(resetTime = true){
-  audios.forEach(a => {
-    a.pause();
-    if(resetTime) a.currentTime = 0;
+let audios = [];
+let curTrack = 0;
+let isPlaying = false;
+let musicStarted = false;
+
+function buildAudioPlayers() {
+  audios = musicTracks.map((src, index) => {
+    const audio = new Audio(src);
+    audio.preload = "auto";
+    audio.loop = false;
+
+    audio.addEventListener("ended", () => {
+      if (index === curTrack) nextTrack();
+    });
+
+    audio.addEventListener("error", () => {
+      showToast("Could not load: " + (trackNames[index] || `Track ${index + 1}`));
+      console.error("Audio failed to load:", src);
+    });
+
+    return audio;
   });
 }
 
-function playTrack(i){
-  if(!audios.length) return;
+function updateMusicUI() {
+  const toggleBtn = document.getElementById("musicToggle");
+  const titleEl = document.getElementById("musicTitle");
+  const iconEl = document.getElementById("musicIcon");
 
-  stopAllTracks(true);
-  curTrack = i;
+  if (toggleBtn) toggleBtn.textContent = isPlaying ? "⏸" : "▶";
+  if (titleEl) titleEl.textContent = trackNames[curTrack] || `Track ${curTrack + 1}`;
+  if (iconEl) iconEl.style.animationPlayState = isPlaying ? "running" : "paused";
+}
 
-  audios[curTrack].play().then(() => {
+function stopAllTracks(resetTime = false) {
+  audios.forEach(audio => {
+    audio.pause();
+    if (resetTime) audio.currentTime = 0;
+  });
+}
+
+async function playTrack(index, resetTime = true) {
+  if (!audios.length) return;
+
+  stopAllTracks(false);
+  curTrack = index;
+
+  const audio = audios[curTrack];
+  if (resetTime) audio.currentTime = 0;
+
+  try {
+    await audio.play();
     isPlaying = true;
     musicStarted = true;
     updateMusicUI();
-  }).catch((err) => {
+  } catch (err) {
     isPlaying = false;
     updateMusicUI();
-    console.error('Audio play failed:', err);
-    showToast('Music could not play. Please check the browser audio permission or the file link.');
-  });
+    console.error("Playback failed:", err);
+    showToast("Music could not play.");
+  }
 }
 
-function toggleMusic(){
-  if(!audios.length){
-    showToast('No audio tracks found.');
+function toggleMusic() {
+  if (!audios.length) {
+    showToast("No music tracks found.");
     return;
   }
 
-  if(!musicStarted){
-    playTrack(curTrack);
+  const currentAudio = audios[curTrack];
+
+  if (!musicStarted) {
+    playTrack(curTrack, true);
     return;
   }
 
-  if(isPlaying){
-    audios[curTrack].pause();
+  if (isPlaying) {
+    currentAudio.pause();
     isPlaying = false;
     updateMusicUI();
-    return;
+  } else {
+    currentAudio.play().then(() => {
+      isPlaying = true;
+      updateMusicUI();
+    }).catch(err => {
+      console.error("Resume failed:", err);
+      showToast("Music could not resume.");
+    });
   }
-
-  audios[curTrack].play().then(() => {
-    isPlaying = true;
-    updateMusicUI();
-  }).catch((err) => {
-    console.error('Audio resume failed:', err);
-    showToast('Music could not resume.');
-  });
 }
 
-function nextTrack(){
-  if(!audios.length) return;
-  playTrack((curTrack + 1) % audios.length);
+function nextTrack() {
+  if (!audios.length) return;
+  const nextIndex = (curTrack + 1) % audios.length;
+  playTrack(nextIndex, true);
 }
 
-function prevTrack(){
-  if(!audios.length) return;
-  playTrack((curTrack - 1 + audios.length) % audios.length);
+function prevTrack() {
+  if (!audios.length) return;
+  const prevIndex = (curTrack - 1 + audios.length) % audios.length;
+  playTrack(prevIndex, true);
 }
 
+buildAudioPlayers();
 updateMusicUI();
 
 function handleEventPhotoError(img){
@@ -675,7 +733,9 @@ galleryPhotos.forEach(src=>{
 
 const gg=document.getElementById('galleryGrid');
 galleryPhotos.forEach((src)=>{
-  const div=document.createElement('div');div.className='g-item';
+  const div=document.createElement('div');
+  div.className='g-item';
+
   const img=document.createElement('img');
   img.src=src;
   img.alt='Yannah photo';
@@ -689,8 +749,12 @@ galleryPhotos.forEach((src)=>{
 
   img.onerror=()=>{markBrokenGalleryItem(img);};
 
-  const ov=document.createElement('div');ov.className='g-overlay';ov.innerHTML='<span class="g-zoom">View Photo</span>';
-  div.appendChild(img);div.appendChild(ov);
+  const ov=document.createElement('div');
+  ov.className='g-overlay';
+  ov.innerHTML='<span class="g-zoom">View Photo</span>';
+
+  div.appendChild(img);
+  div.appendChild(ov);
   gg.appendChild(div);
 });
 
@@ -703,25 +767,35 @@ function openLb(i){
   document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow='hidden';
 }
-function closeLb(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
+function closeLb(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
 function lbNav(d){
   if(!validGalleryPhotos.length)return;
   lbIdx=(lbIdx+d+validGalleryPhotos.length)%validGalleryPhotos.length;
   document.getElementById('lbImg').src=validGalleryPhotos[lbIdx];
   document.getElementById('lbCounter').textContent=(lbIdx+1)+' / '+validGalleryPhotos.length;
 }
-document.getElementById('lightbox').addEventListener('click',e=>{if(e.target===document.getElementById('lightbox'))closeLb();});
+document.getElementById('lightbox').addEventListener('click',e=>{
+  if(e.target===document.getElementById('lightbox'))closeLb();
+});
 document.addEventListener('keydown',e=>{
-  const lb=document.getElementById('lightbox');if(!lb.classList.contains('open'))return;
+  const lb=document.getElementById('lightbox');
+  if(!lb.classList.contains('open'))return;
   if(e.key==='Escape')closeLb();
   if(e.key==='ArrowLeft')lbNav(-1);
   if(e.key==='ArrowRight')lbNav(1);
 });
 let tsX=0;
 document.getElementById('lightbox').addEventListener('touchstart',e=>{tsX=e.touches[0].clientX;},{passive:true});
-document.getElementById('lightbox').addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tsX;if(Math.abs(dx)>50)lbNav(dx<0?1:-1);});
+document.getElementById('lightbox').addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tsX;
+  if(Math.abs(dx)>50)lbNav(dx<0?1:-1);
+});
 
-const tabsEl=document.getElementById('eTabs'),panelsEl=document.getElementById('ePanels');
+const tabsEl=document.getElementById('eTabs');
+const panelsEl=document.getElementById('ePanels');
 eighteensData.forEach((data,idx)=>{
   const btn=document.createElement('button');
   btn.className='tab-btn'+(idx===0?' active':'');
@@ -762,16 +836,24 @@ eighteensData.forEach((data,idx)=>{
 
 function updateCd(){
   const diff=new Date('2026-03-28T16:30:00+08:00')-new Date();
-  if(diff<=0){['cd-d','cd-h','cd-m','cd-s'].forEach(id=>document.getElementById(id).textContent='00');return;}
+  if(diff<=0){
+    ['cd-d','cd-h','cd-m','cd-s'].forEach(id=>document.getElementById(id).textContent='00');
+    return;
+  }
   document.getElementById('cd-d').textContent=String(Math.floor(diff/86400000)).padStart(2,'0');
   document.getElementById('cd-h').textContent=String(Math.floor((diff%86400000)/3600000)).padStart(2,'0');
   document.getElementById('cd-m').textContent=String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
   document.getElementById('cd-s').textContent=String(Math.floor((diff%60000)/1000)).padStart(2,'0');
 }
-updateCd();setInterval(updateCd,1000);
+updateCd();
+setInterval(updateCd,1000);
 
 let attend='';
-function pickAttend(val){attend=val;document.getElementById('attYes').classList.toggle('active',val==='yes');document.getElementById('attNo').classList.toggle('active',val==='no');}
+function pickAttend(val){
+  attend=val;
+  document.getElementById('attYes').classList.toggle('active',val==='yes');
+  document.getElementById('attNo').classList.toggle('active',val==='no');
+}
 function buildCal(){
   const t=encodeURIComponent("Yannah's 18th Birthday Debut");
   const l=encodeURIComponent("JB's Grill Restaurant, Pallocan East, Batangas City");
@@ -779,28 +861,45 @@ function buildCal(){
   return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+t+'&dates=20260328T163000/20260328T230000&location='+l+'&details='+d+'&ctz=Asia%2FManila';
 }
 function submitRsvp(){
-  const f=document.getElementById('rsvpFirst').value.trim(),l=document.getElementById('rsvpLast').value.trim(),e=document.getElementById('rsvpEmail').value.trim();
-  if(!f||!l||!e||!attend){showToast('Please fill in all required fields &#x1F338;');return;}
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)){showToast('Please enter a valid email address');return;}
-  const btn=document.getElementById('rsvpBtn');btn.textContent='Sending...';btn.disabled=true;
+  const f=document.getElementById('rsvpFirst').value.trim();
+  const l=document.getElementById('rsvpLast').value.trim();
+  const e=document.getElementById('rsvpEmail').value.trim();
+
+  if(!f||!l||!e||!attend){
+    showToast('Please fill in all required fields 🌸');
+    return;
+  }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)){
+    showToast('Please enter a valid email address');
+    return;
+  }
+
+  const btn=document.getElementById('rsvpBtn');
+  btn.textContent='Sending...';
+  btn.disabled=true;
+
   emailjs.send('service_jto7hfj','template_ki0tp6q',{
-    from_name:f+' '+l,from_email:e,
+    from_name:f+' '+l,
+    from_email:e,
     attendance:attend==='yes'?'YES - Will attend':'NO - Cannot attend',
     guests:document.getElementById('rsvpGuests').value||'1',
     message:document.getElementById('rsvpMsg').value.trim()||'(no message)'
   }).then(()=>{
     document.getElementById('rsvpForm').style.display='none';
-    const s=document.getElementById('rsvpSuccess');s.style.display='block';
+    const s=document.getElementById('rsvpSuccess');
+    s.style.display='block';
+
     if(attend==='yes'){
       document.getElementById('calLink').href=buildCal();
       document.getElementById('calLink').style.display='inline-flex';
       document.getElementById('rsTitle').textContent='See you there!';
-      document.getElementById('rsText').textContent="Your RSVP has been received! We can't wait to celebrate with you. &#x1F495;";
+      document.getElementById('rsText').textContent="Your RSVP has been received! We can't wait to celebrate with you. 💕";
     }else{
       document.getElementById('calLink').style.display='none';
       document.getElementById('rsTitle').textContent="We'll miss you!";
-      document.getElementById('rsText').textContent="Thank you for letting us know. Yannah cherishes every warm wish. &#x1F495;";
+      document.getElementById('rsText').textContent="Thank you for letting us know. Yannah cherishes every warm wish. 💕";
     }
+
     const msg=document.getElementById('rsvpMsg').value.trim();
     if(msg)addMsg(f+' '+l,msg,'RSVP Guest');
   }).catch(()=>{
@@ -811,23 +910,41 @@ function submitRsvp(){
 }
 
 function signGb(){
-  const n=document.getElementById('gbName').value.trim(),r=document.getElementById('gbRel').value.trim(),m=document.getElementById('gbMsg').value.trim();
-  if(!n||!m){showToast('Please enter your name and message');return;}
+  const n=document.getElementById('gbName').value.trim();
+  const r=document.getElementById('gbRel').value.trim();
+  const m=document.getElementById('gbMsg').value.trim();
+
+  if(!n||!m){
+    showToast('Please enter your name and message');
+    return;
+  }
+
   addMsg(n,m,r||'Guest');
   document.getElementById('gbName').value='';
   document.getElementById('gbRel').value='';
   document.getElementById('gbMsg').value='';
-  showToast('Your message has been added! &#x1F338;');
+  showToast('Your message has been added! 🌸');
 }
+
 function addMsg(name,text,rel){
-  const g=document.getElementById('msgsGrid'),c=document.createElement('div');c.className='msg-card';
+  const g=document.getElementById('msgsGrid');
+  const c=document.createElement('div');
+  c.className='msg-card';
   const now=new Date().toLocaleDateString('en-PH',{year:'numeric',month:'long',day:'numeric'});
   c.innerHTML='<p class="msg-name">'+esc(name)+'</p><p class="msg-text">'+esc(text)+'</p><p class="msg-time">'+esc(rel)+' &middot; '+now+'</p>';
   g.prepend(c);
 }
-function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function esc(s){
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
 let toastT;
-function showToast(msg){const t=document.getElementById('toast');t.innerHTML=msg;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),3200);}
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.innerHTML=msg;
+  t.classList.add('show');
+  clearTimeout(toastT);
+  toastT=setTimeout(()=>t.classList.remove('show'),3200);
+}
 </script>
 </body>
 </html>
