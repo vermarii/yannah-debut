@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Yannah @ 18 &middot; A Flower in Bloom</title>
+<title>Yannah @ 18 · A Flower in Bloom</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>emailjs.init('_k96_BaLgUFsfXyFiNAnd');</script>
@@ -70,7 +70,15 @@ nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(253,246,248,.93)
 @keyframes orbFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.05)}}
 .hero-c{position:relative;z-index:2}
 .eyebrow{font-size:.62rem;font-weight:500;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;opacity:0;animation:fadeUp .8s .3s forwards}
-.hero-name{font-family:'Great Vibes',cursive;font-size:clamp(5rem,20vw,13rem);color:var(--dark);line-height:.9;opacity:0;animation:fadeUp 1s .5s forwards;text-shadow:0 2px 40px rgba(201,96,122,.15)}
+.hero-name{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(5rem,20vw,13rem);
+  color:var(--dark);
+  line-height:.9;
+  opacity:0;
+  animation:fadeUp 1s .5s forwards;
+  text-shadow:0 2px 40px rgba(201,96,122,.15)
+}
 .hero-at18{font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,4vw,3rem);font-weight:300;font-style:italic;color:var(--lilac);margin-top:8px;opacity:0;animation:fadeUp 1s .7s forwards}
 .hero-theme{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-top:18px;opacity:0;animation:fadeUp 1s .85s forwards}
 .hero-div{display:flex;align-items:center;gap:14px;justify-content:center;margin:22px 0;opacity:0;animation:fadeUp 1s .95s forwards}
@@ -169,7 +177,6 @@ section{position:relative;z-index:1}
 .e-list li:hover{background:rgba(201,96,122,.05)}
 .e-list li:last-child,.e-list li:nth-last-child(2):nth-child(odd){border-bottom:none}
 .e-bullet{width:6px;height:6px;border-radius:50%;background:var(--rose);flex-shrink:0;opacity:.7}
-.e-num{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:600;color:var(--rose-lt);min-width:22px;flex-shrink:0}
  
 /* ── COUNTDOWN ── */
 .countdown-s{padding:70px 24px;background:linear-gradient(135deg,var(--dark) 0%,#3d1a2e 100%);text-align:center;position:relative;overflow:hidden}
@@ -517,7 +524,6 @@ function animateSparks(){
   sparks.forEach(s=>{
     ctx.save();ctx.globalAlpha=s.life*.6;ctx.fillStyle=s.color;
     ctx.beginPath();
-    // star shape
     const r1=s.size,r2=s.size*.4;
     for(let i=0;i<10;i++){
       const angle=Math.PI/5*i-Math.PI/2;
@@ -530,7 +536,6 @@ function animateSparks(){
   requestAnimationFrame(animateSparks);
 }
 animateSparks();
-// cursor sparkles
 document.addEventListener('mousemove',e=>{
   if(Math.random()<.3){const s=new Spark(e.clientX,e.clientY);s.size=1.5;sparks.push(s);}
 });
@@ -548,7 +553,6 @@ const musicContainer=document.getElementById('musicAudios');
 musicTracks.forEach((src,i)=>{
   const a=new Audio();
   a.preload='none';
-  // Use Google Drive direct download for audio
   a.src=src.replace('https://lh3.googleusercontent.com/d/','https://drive.google.com/uc?export=download&id=');
   a.addEventListener('ended',()=>nextTrack());
   audios.push(a);
@@ -577,7 +581,6 @@ function toggleMusic(){
   if(isPlaying){audios[curTrack].pause();isPlaying=false;document.getElementById('musicToggle').textContent='▶';document.getElementById('musicIcon').style.animationPlayState='paused';}
   else{audios[curTrack].play();isPlaying=true;document.getElementById('musicToggle').textContent='⏸';document.getElementById('musicIcon').style.animationPlayState='running';}
 }
-// Autoplay on first interaction
 ['click','touchstart','scroll','keydown'].forEach(ev=>{
   document.addEventListener(ev,()=>startMusic(),{once:true,passive:true});
 });
@@ -628,9 +631,9 @@ eighteensData.forEach((data,idx)=>{
   const wrap=document.createElement('div');wrap.className='e-list-wrap';
   const title=document.createElement('div');title.className='e-list-title';title.innerHTML=data.icon+' '+data.label;
   const ul=document.createElement('ul');ul.className='e-list';
-  data.names.forEach((n,i)=>{
+  data.names.forEach((n)=>{
     const li=document.createElement('li');
-    li.innerHTML='<span class="e-num">'+(i+1)+'</span><span class="e-bullet"></span>'+n;
+    li.innerHTML='<span class="e-bullet"></span>'+n;
     ul.appendChild(li);
   });
   wrap.appendChild(title);wrap.appendChild(ul);panel.appendChild(wrap);panelsEl.appendChild(panel);
@@ -673,7 +676,7 @@ function submitRsvp(){
     else{document.getElementById('calLink').style.display='none';document.getElementById('rsTitle').textContent="We'll miss you!";document.getElementById('rsText').textContent="Thank you for letting us know. Yannah cherishes every warm wish. &#x1F495;";}
     const msg=document.getElementById('rsvpMsg').value.trim();
     if(msg)addMsg(f+' '+l,msg,'RSVP Guest');
-  }).catch(()=>{showToast('Could not send RSVP. Please try again.');btn.textContent='Send My RSVP \u2726';btn.disabled=false;});
+  }).catch(()=>{showToast('Could not send RSVP. Please try again.');btn.textContent='Send My RSVP ✦';btn.disabled=false;});
 }
  
 // ── GUESTBOOK ──
