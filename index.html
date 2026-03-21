@@ -749,11 +749,12 @@ galleryPhotos.forEach((src)=>{
   img.alt='Yannah photo';
   img.loading='eager';
 
-  img.onload=()=>{
+ img.onload=()=>{
     img.classList.add('loaded');
     const safeIndex=validGalleryPhotos.push(src)-1;
     div.dataset.safeIndex=safeIndex;
     div.addEventListener('click',()=>openLb(safeIndex));
+    masonryLayout();
   };
 
   img.onerror=()=>{markBrokenGalleryItem(img);};
@@ -976,6 +977,8 @@ function masonryLayout(){
 }
 window.addEventListener('load',masonryLayout);
 window.addEventListener('resize',masonryLayout);
+setTimeout(masonryLayout,500);
+setTimeout(masonryLayout,1500);
 </script>
 </body>
 </html>
