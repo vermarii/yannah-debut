@@ -24,13 +24,12 @@ body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--dark);ove
 }
 .sparkle-canvas{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
 .petals-bg{position:fixed;inset:0;pointer-events:none;z-index:10;overflow:hidden}
-.petal{position:absolute;opacity:0;animation:petalFall linear infinite}
-@keyframes petalFall{
+.petal{position:absolute;opacity:0;animation:petalMist ease-in-out infinite}
+@keyframes petalMist{
   0%{opacity:0;transform:translateY(0px) translateX(0px) rotate(0deg) scale(1)}
-  25%{opacity:.7;transform:translateY(-30px) translateX(20px) rotate(90deg) scale(1.05)}
-  50%{opacity:.6;transform:translateY(-10px) translateX(-15px) rotate(180deg) scale(.95)}
-  75%{opacity:.7;transform:translateY(-40px) translateX(10px) rotate(270deg) scale(1.05)}
-  100%{opacity:0;transform:translateY(-5px) translateX(0px) rotate(360deg) scale(1)}
+  15%{opacity:.6}
+  85%{opacity:.3}
+  100%{opacity:0;transform:translateY(-120px) translateX(15px) rotate(45deg) scale(.7)}
 }
  
 .music-bar{
@@ -576,7 +575,7 @@ const petalShapes=['50% 0 50% 0','0 50% 0 50%','50% 50% 0 0','30% 70% 30% 70%'];
     const p=document.createElement('div');
     p.className='petal';
     const s=6+Math.random()*10;
-    p.style.cssText=`left:${Math.random()*100}%;width:${s}px;height:${s*1.4}px;background:${c};opacity:${o};border-radius:${petalShapes[Math.floor(Math.random()*petalShapes.length)]};animation-duration:${6+Math.random()*8}s;animation-delay:${Math.random()*10}s`;
+    p.style.cssText=`left:${Math.random()*100}%;top:${40+Math.random()*60}%;width:${s}px;height:${s*1.4}px;background:${c};opacity:${o};border-radius:${petalShapes[Math.floor(Math.random()*petalShapes.length)]};animation-duration:${8+Math.random()*12}s;animation-delay:${Math.random()*15}s`;
     pb.appendChild(p);
   }
 });
