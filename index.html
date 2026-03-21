@@ -841,6 +841,7 @@ function submitRsvp(){
   const btn=document.getElementById('rsvpBtn');
   btn.textContent='Sending...';btn.disabled=true;
   emailjs.send('service_jto7hfj','template_ki0tp6q',{
+    title:'RSVP',
     from_name:f+' '+l,from_email:e,
     attendance:attend==='yes'?'YES - Will attend':'NO - Cannot attend',
     guests:document.getElementById('rsvpGuests').value||'1',
