@@ -888,6 +888,29 @@ function showToast(msg){
   const t=document.getElementById('toast');t.innerHTML=msg;t.classList.add('show');
   clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),3200);
 }
+  // ── EXIT MODAL ──
+const exitModal=document.createElement('div');
+exitModal.id='exitModal';
+exitModal.style.cssText=`display:none;position:fixed;inset:0;background:rgba(42,21,32,.85);z-index:9000;align-items:center;justify-content:center;backdrop-filter:blur(8px)`;
+exitModal.innerHTML=`
+  <div style="background:var(--cream);border-radius:28px;padding:48px 40px;max-width:420px;width:90%;text-align:center;position:relative;box-shadow:0 30px 80px rgba(42,21,32,.3);animation:lbIn .3s ease">
+    <div style="font-size:3rem;margin-bottom:12px">🌸</div>
+    <p style="font-family:'Great Vibes',cursive;font-size:2.4rem;color:var(--rose);margin-bottom:10px">Before you go...</p>
+    <p style="font-size:.85rem;color:var(--mid);line-height:1.7;margin-bottom:28px">Leave Yannah a message in the guestbook — she would love to hear from you! 💕</p>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <button onclick="document.getElementById('exitModal').style.display='none';document.getElementById('guestbook').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('gbName').focus(),800)" style="padding:14px;background:linear-gradient(135deg,var(--rose),var(--lilac));color:white;border:none;border-radius:50px;font-family:'Jost',sans-serif;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;cursor:pointer">✦ &nbsp; Leave a Message</button>
+      <button onclick="document.getElementById('exitModal').style.display='none';window._allowLeave=true;window.close?window.close():history.back()" style="padding:12px;background:transparent;color:var(--lt);border:1.5px solid var(--blush);border-radius:50px;font-family:'Jost',sans-serif;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer">Maybe next time</button>
+    </div>
+  </div>`;
+document.body.appendChild(exitModal);
+
+let exitShown=false;
+document.addEventListener('mouseleave',e=>{
+  if(e.clientY<=0 && !exitShown){
+    exitShown=true;
+    exitModal.style.display='flex';
+  }
+});
 </script>
 </body>
 </html>
