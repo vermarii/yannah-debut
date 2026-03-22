@@ -74,7 +74,7 @@ nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(253,246,248,.93)
 .hero-bg{position:absolute;inset:0;background:
   radial-gradient(ellipse 60% 50% at 10% 90%,rgba(201,96,122,.2) 0%,transparent 55%),
   radial-gradient(ellipse 50% 40% at 90% 10%,rgba(196,160,224,.25) 0%,transparent 55%),
-  radial-gradient(ellipse 70% 60% at 50% 50%,rgba(253,232,238,.8) 0%,var(--cream) 100%)}
+  radial-gradient(ellipse 70% 60% at 50% 50%,rgba(253,232,238,.55) 0%,rgba(253,246,248,.7) 100%)}
 .hero-photo{position:absolute;inset:0;background:url("images/Ws-496.jpg") center/cover no-repeat;opacity:.07;filter:blur(4px)}
 .hero-orbs{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .orb{position:absolute;border-radius:50%;filter:blur(60px);animation:orbFloat ease-in-out infinite}
@@ -364,6 +364,7 @@ footer::before{content:'';position:absolute;inset:0;background:radial-gradient(e
 </nav>
  
 <section class="hero" id="home">
+  <video autoplay muted loop playsinline src="flowerinbloom.mp4" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none"></video>
   <div class="hero-bg"></div>
   <div class="hero-photo"></div>
   <div class="hero-orbs"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div></div>
