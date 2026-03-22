@@ -231,7 +231,7 @@ section{position:relative;z-index:5}
 .lb-prev{left:14px}.lb-next{right:14px}
 .lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,.2)}
 .lb-counter{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.45);font-size:.68rem;letter-spacing:.18em}
- 
+.e-list-sub{text-align:center;font-size:.75rem;font-style:italic;color:var(--lt);margin-bottom:16px;letter-spacing:.05em}
 .eighteens{padding:90px 24px;background:white}
 .e-header{text-align:center;margin-bottom:44px}
 .e-tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:44px}
@@ -549,12 +549,12 @@ const musicTracks=["music/1.mp3","music/2.mp3","music/3.mp3","music/4.mp3"];
 const trackNames=['Track 1','Track 2','Track 3','Track 4'];
  
 const eighteensData=[
-  {key:'roses',icon:'🌹',label:'18 Roses & Treasures',names:["Dad","Bonbon","Papa","Vien Herrera","Amr Garcia","Jhune Ada","Scott Braiden Lorenzo","Cedrick Ramos","Nhommiel Pahilacan","Geejay Ilagan","Jerhan Fallarcuna","Carl Reyes","Karl Mathew Ilagan","Yousof Garcia","Ninong Dennis Briones","Jared Amul","Ace Mathew Ferrancol","John Vincent Castillo"]},
-  {key:'bills',icon:'💵',label:'18 Bills',names:["Ninang Glaisa Mosca","Ninang Manilyn Ilag","Mommy Ising Aquino","Ninang Mavi","Lola Femy Amul","Caroline Amul","Lolo Nictor Ilagan","Ronald Candava","Sandy Capistrano","Marjorie Datinguinoo","Princess Ilagan","Baby Ilagan","Lola Lucing Ilagan","Kiz Mendoza","Mama","Ninang Istel","Jhune Ada","Ninong Dennis Briones"]},
-  {key:'candles',icon:'🕯️',label:'18 Candles & Footwear',names:["Sheena Nicole Reyes","Lorraine Oriondo","Myra Andal","Jan Cedric Abdon","Althea Talento","Devie Jean De Vera","Ninang Sheanna","Trent Gian Magnaye","Kim Bayeta","Andrea Macalindol","Miesha Sirenity Maunahan","Hannah Medella","Nica Andal","Ninang Glaisa Mosca","Tita Ningning","Lola Zeny Castillo","Anches Ilagan","Angelo Melo"]},
-  {key:'bags',icon:'👜',label:'18 Bags',names:["Krisha Aquino","Jonna Ilagan","Princess Ilagan","Lola Mylene Ilagan","Carla Reyes","Jian Ilagan","Ninang Lara Briones","Ate Mandy Mendoza","Princess Diane Sumulong","Cassandra Nicole Oliver","Trisha Agudera","Denniel Arcega","Ara Villamor","Chel Percia","Kristel Percia","Leny Ilagan","Andrea Ilagan","Eden Ilagan"]},
-  {key:'makeup',icon:'💄',label:'18 Makeup & Perfume',names:["Lizzie Anne Aquino","Ninang Mavi","Zarina Sales","Aileen Ferrancol","Huey Mendoza","Nisha Herrera","Rich Cielo Alejo","Liezel Fajilagot","Alexa Coleene Espiritu","Yssa Moaje","Jade Crystel Ramirez","Laine Castillo","Karen Mosca","Ninang Manilyn","Marcuiz Mendoza","Sam Andal","Maja Fabul","Genivive Cruz"]},
-  {key:'shots',icon:'🥂',label:'18 Shots',names:["Carl Mañacap","Althea Nicole Cani","Prince Silungan","Patrick Gutierrez","Lorraine Oriondo","Sheena Reyes","Trish Salih","Arrabella Cabarnero","Dad","Nicole Ferwelo","Jhune Ada","Amr Garcia","Vien Herrera","Kim Bayeta","Mel France","Lance Dimaapi","Homar Castillo","Richard Castillo"]}
+  {key:'roses',icon:'🌹',label:'18 Roses & Treasure Gifts',sublabel:'Each rose and gift carries a piece of love I will treasure forever',names:["Mom","Dad","Nisha","Mama","Papa","Ninang Istel","Sir Ada","Carla","Ningning","Mara","Shina","Vien","Tita Femy","Ate Kikay","Lola","Jared","Alyssa","Mea","Yusof","Amr","Ate Aileen"]},
+  {key:'candles',icon:'🕯️',label:'18 Candles & Footwear',sublabel:'Steps with love',names:["Dad","Bonbon","Papa","Vien Herrera","Amr Garcia","Jhune Ada","Ogie Castillo","Scott Braiden Lorenzo","Cedrick Ramos","Nhommiel Pahilacan","Geejay Ilagan","Jerhan Fallarcuna","Carl Reyes","Karl Mathew Ilagan","Yousof Garcia","Ninong Dennis Briones","Ninong Marvin Babasa","Jared Amul","Richard Castillo","Ace Mathew Ferrancol","John Vincent Castillo"]},
+  {key:'bills',icon:'💵',label:'18 Blue Bills',sublabel:'Blessings for My Future',names:["Sheena Nicole Reyes","Ninang Mavi","Lorraine Oriondo","Myra Andal","Jan Cedric Abdon","Althea Talento","Devie Jean De Vera","Mama","Trent Gian Magnaye","Kim Bayeta","Andrea Macalindol","Miesha Sirenity Maunahan","Hannah Medella","Nica Andal","Ninang Glaisa Mosca","Tita Ningning","Lola Zeny Castillo","Lola Femy Amul","Angelo Melo","Ninang Istel"]},
+  {key:'bags',icon:'👜',label:'18 Bags',sublabel:'Carry-All Love',names:["Ninang Glaisa Mosca","Ninang Manilyn Ilag","Mommy Ising Aquino","Ninang Mavi","Ninang Istel","Lola Femy Amul","Caroline Amul","Lolo Nictor Ilagan","Ronald Candava","Sandy Capistrano","Marjorie Datinguinoo","Princess Ilagan","Baby Ilagan","Lola Lucing Ilagan","Ninong Marvin Babasa","Kiz Mendoza","Myrrian Dumalaog","Rorie Castillo","Jhune Ada","Ninong Dennis Briones"]},
+  {key:'makeup',icon:'💄',label:'18 Make-Up & Perfume',sublabel:'Glow with Me',names:["Hermione Dumalaog","Krisha Aquino","Jonna Ilagan","Lola Sevilla Bacay","Lola Mylene Ilagan","Carla Reyes","Jian Ilagan","Ninang Lara Briones","Mandy Mendoza","Princess Diane Sumulong","Nathalie Castillo","Cassandra Nicole Oliver","Trisha Agudera","Denniel Arcega","Ara Villamor","Chel Percia","Kristel Percia","Leny Ilagan"]},
+  {key:'mystery',icon:'🎁',label:'Mystery Gifts',sublabel:'Surprises from the heart',names:["Lizzie Anne Aquino","Cep Castillo","Zarina Sales","Aileen Ferrancol","Huey Mendoza","Nisha Herrera","Rich Cielo Alejo","Liezel Fajilagot","Alexa Coleene Espiritu","Yssa Moaje","Jade Crystel Ramirez","Laine Castillo","Karen Mosca","Ninang Manilyn Ilag","Marcuiz Mendoza","Sam Andal","Maja Fabul","Genivive Cruz"]}
 ];
  
 // ── CURSOR ──
@@ -805,6 +805,8 @@ eighteensData.forEach((data,idx)=>{
   const title=document.createElement('div');title.className='e-list-title';title.innerHTML=data.icon+' '+data.label;
   const ul=document.createElement('ul');ul.className='e-list';
   data.names.forEach(n=>{const li=document.createElement('li');li.innerHTML='<span class="e-bullet"></span>'+n;ul.appendChild(li);});
+  const sub=document.createElement('p');sub.className='e-list-sub';sub.textContent=data.sublabel||'';
+  wrap.appendChild(sub);
   wrap.appendChild(title);wrap.appendChild(ul);panel.appendChild(wrap);panelsEl.appendChild(panel);
 });
  
