@@ -254,7 +254,9 @@ section{position:relative;z-index:5}
 .btn-cal:hover{background:var(--rose);color:white}
  
 /* ── GUESTBOOK ── */
-.guestbook{padding:90px 24px;background:var(--petal)}
+.guestbook{padding:90px 24px;background:url("images/flower.jpeg") center/cover no-repeat;position:relative}
+.guestbook::before{content:'';position:absolute;inset:0;background:rgba(253,232,238,.88);z-index:0;pointer-events:none}
+.guestbook .gb-inner{position:relative;z-index:1}
 .gb-inner{max-width:860px;margin:0 auto}
 .gb-header{text-align:center;margin-bottom:40px}
 .gb-form{background:white;border:1px solid rgba(201,96,122,.12);border-radius:20px;padding:28px;margin-bottom:40px;box-shadow:0 4px 24px rgba(201,96,122,.07)}
