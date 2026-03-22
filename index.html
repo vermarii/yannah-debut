@@ -219,7 +219,7 @@ section{position:relative;z-index:5}
 .e-bullet{width:6px;height:6px;border-radius:50%;background:var(--rose);flex-shrink:0;opacity:.7}
  
 /* ── COUNTDOWN ── */
-.countdown-s{padding:70px 24px;background:linear-gradient(135deg,var(--dark) 0%,#3d1a2e 100%);text-align:center;position:relative;overflow:hidden}
+.countdown-s{padding:70px 24px;text-align:center;position:relative;overflow:hidden}
 .countdown-s::before{content:'18';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:'Great Vibes',cursive;font-size:55vw;color:rgba(255,255,255,.03);pointer-events:none;line-height:1}
 .cd-lbl{font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:600}
 .cd-title{font-family:'Great Vibes',cursive;font-size:clamp(2rem,5vw,3.5rem);color:var(--rose-lt);margin-bottom:36px}
@@ -436,7 +436,9 @@ footer::before{content:'';position:absolute;inset:0;background:radial-gradient(e
 </section>
  
 <section class="countdown-s">
-  <div class="reveal">
+  <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none"></video>
+  <div style="position:absolute;inset:0;background:rgba(20,5,15,.55);z-index:1;pointer-events:none"></div>
+  <div class="reveal" style="position:relative;z-index:2">
     <p class="cd-lbl">Until the Big Night</p>
     <p class="cd-title">Counting Down to Yannah's Debut</p>
     <div class="cd-boxes">
